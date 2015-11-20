@@ -323,17 +323,17 @@
     },
     {
         "name": "yiisoft/yii2",
-        "version": "2.0.4",
-        "version_normalized": "2.0.4.0",
+        "version": "2.0.6",
+        "version_normalized": "2.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-framework.git",
-            "reference": "726867caee3f23aa7a6975c801e64b6021e14f86"
+            "reference": "f42b2eb80f61992438661b01d0d74c6738e2ff38"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/726867caee3f23aa7a6975c801e64b6021e14f86",
-            "reference": "726867caee3f23aa7a6975c801e64b6021e14f86",
+            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/f42b2eb80f61992438661b01d0d74c6738e2ff38",
+            "reference": "f42b2eb80f61992438661b01d0d74c6738e2ff38",
             "shasum": ""
         },
         "require": {
@@ -348,7 +348,7 @@
             "php": ">=5.4.0",
             "yiisoft/yii2-composer": "*"
         },
-        "time": "2015-05-10 20:09:47",
+        "time": "2015-08-05 22:00:30",
         "bin": [
             "yii"
         ],
@@ -413,26 +413,26 @@
     },
     {
         "name": "swiftmailer/swiftmailer",
-        "version": "v5.4.0",
-        "version_normalized": "5.4.0.0",
+        "version": "v5.4.1",
+        "version_normalized": "5.4.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
+            "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
-            "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
+            "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
         "require-dev": {
-            "mockery/mockery": "~0.9.1"
+            "mockery/mockery": "~0.9.1,<0.9.4"
         },
-        "time": "2015-03-14 06:06:39",
+        "time": "2015-06-06 14:19:39",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -461,6 +461,7 @@
         "description": "Swiftmailer, free feature-rich PHP mailer",
         "homepage": "http://swiftmailer.org",
         "keywords": [
+            "email",
             "mail",
             "mailer"
         ]
@@ -566,17 +567,17 @@
     },
     {
         "name": "bower-asset/bootstrap",
-        "version": "v3.3.4",
-        "version_normalized": "3.3.4.0",
+        "version": "v3.3.5",
+        "version_normalized": "3.3.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f"
+            "reference": "16b48259a62f576e52c903c476bd42b90ab22482"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f",
-            "reference": "a10eb60bc0b07b747fa0c4ebd8821eb7307bd07f",
+            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/16b48259a62f576e52c903c476bd42b90ab22482",
+            "reference": "16b48259a62f576e52c903c476bd42b90ab22482",
             "shasum": ""
         },
         "require": {
@@ -586,13 +587,7 @@
         "extra": {
             "bower-asset-main": [
                 "less/bootstrap.less",
-                "dist/css/bootstrap.css",
-                "dist/js/bootstrap.js",
-                "dist/fonts/glyphicons-halflings-regular.eot",
-                "dist/fonts/glyphicons-halflings-regular.svg",
-                "dist/fonts/glyphicons-halflings-regular.ttf",
-                "dist/fonts/glyphicons-halflings-regular.woff",
-                "dist/fonts/glyphicons-halflings-regular.woff2"
+                "dist/js/bootstrap.js"
             ],
             "bower-asset-ignore": [
                 "/.*",
@@ -606,6 +601,9 @@
             ]
         },
         "installation-source": "dist",
+        "license": [
+            "MIT"
+        ],
         "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
         "keywords": [
             "css",
@@ -738,9 +736,9 @@
             "bower-asset/jquery": ">=1.7"
         },
         "require-dev": {
-            "bower-asset/jasmine-ajax": ">=1.3.1,<1.4",
-            "bower-asset/jasmine-jquery": ">=1.5.2,<1.6",
-            "bower-asset/jquery": ">=1.7,<1.8"
+            "bower-asset/jasmine-ajax": "~1.3.1",
+            "bower-asset/jasmine-jquery": "~1.5.2",
+            "bower-asset/jquery": "~1.7"
         },
         "type": "bower-asset-library",
         "extra": {
@@ -841,17 +839,17 @@
     },
     {
         "name": "fzaninotto/faker",
-        "version": "v1.4.0",
-        "version_normalized": "1.4.0.0",
+        "version": "v1.5.0",
+        "version_normalized": "1.5.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0"
+            "reference": "d0190b156bcca848d401fb80f31f504f37141c8d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/010c7efedd88bf31141a02719f51fb44c732d5a0",
-            "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d0190b156bcca848d401fb80f31f504f37141c8d",
+            "reference": "d0190b156bcca848d401fb80f31f504f37141c8d",
             "shasum": ""
         },
         "require": {
@@ -861,16 +859,20 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2014-06-04 14:43:02",
+        "suggest": {
+            "ext-intl": "*"
+        },
+        "time": "2015-05-29 06:29:14",
         "type": "library",
         "extra": {
-            "branch-alias": []
+            "branch-alias": {
+                "dev-master": "1.5.x-dev"
+            }
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-0": {
-                "Faker": "src/",
-                "Faker\\PHPUnit": "test/"
+            "psr-4": {
+                "Faker\\": "src/Faker/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
