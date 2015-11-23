@@ -27,26 +27,12 @@ $this->params['breadcrumbs'][] = $this->title;
 		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
 
 		<script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
-
-		<!-- Demo page code -->
-
+		
 		<style type="text/css">
-			#line-chart {
-				height:300px;
-				width:800px;
-				margin: 0px auto;
-				margin-top: 1em;
+			.form-group {
+				
+				margin-top: 20px;
 			}
-			.brand { font-family: georgia, serif; }
-			.brand .first {
-				color: #ccc;
-				font-style: italic;
-			}
-			.brand .second {
-				color: #fff;
-				font-weight: bold;
-			}
-			
 		</style>
 		
 		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
@@ -55,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<body> 
         <div class="row-fluid">
 			<div class="dialog">
-				<div class="block" style="margin-top: 80%;">
+				<div class="block" style="margin-top: 80%;height:300px">
 					<p class="block-heading">后台登录</p>
 					<div class="block-body">
 						<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
@@ -64,8 +50,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 							<?= $form->field($model, 'password')->passwordInput() ?>
 
-							<div class="form-group">
-								<?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+						<div style="text-align:center" class="form-group">
+								<?= Html::submitButton('登录', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
 							</div>
 
 						<?php ActiveForm::end(); ?>
