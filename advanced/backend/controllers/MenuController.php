@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class MenuController extends Controller
 {
+	public $layout = "blue"; //设置使用的布局文件
+	
     public function behaviors()
     {
         return [
