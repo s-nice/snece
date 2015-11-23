@@ -18,26 +18,6 @@ use yii\helpers\Html;
 		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
 
 		<script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
-
-		<!-- Demo page code -->
-
-		<style type="text/css">
-			#line-chart {
-				height:300px;
-				width:800px;
-				margin: 0px auto;
-				margin-top: 1em;
-			}
-			.brand { font-family: georgia, serif; }
-			.brand .first {
-				color: #ccc;
-				font-style: italic;
-			}
-			.brand .second {
-				color: #fff;
-				font-weight: bold;
-			}
-		</style>
 		
 		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
 		
@@ -64,7 +44,7 @@ use yii\helpers\Html;
                     </li>
 
                 </ul>
-                <a class="brand" href="index.html"><span class="first">后台</span> <span class="second">管理</span></a>
+                <span class="brand">后台管理</span>
 			</div>
 		</div>
 		
