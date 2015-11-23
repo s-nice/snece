@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -34,36 +38,19 @@
 				font-weight: bold;
 			}
 		</style>
-
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		  <script src="lib/html5.js"></script>
-		<![endif]-->
-
-		<!-- Le fav and touch icons -->
+		
 		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+		
 	</head>
-
-	<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
-	<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
-	<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
-	<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
-	<!--[if (gt IE 9)|!(IE)]><!--> 
-	<body class=""> 
-		<!--<![endif]-->
-
+	
+	<body class="">
 		<div class="navbar">
 			<div class="navbar-inner">
                 <ul class="nav pull-right">
-
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
+					
                     <li id="fat-menu" class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
+                            <i class="icon-user"></i> <?= Yii::$app->user->identity->username ?>
                             <i class="icon-caret-down"></i>
                         </a>
 
@@ -72,7 +59,7 @@
                             <li class="divider"></li>
                             <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                             <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                            <li><?= Html::a('退出', ['site/logout'], ['data-method' => 'post']) ?></li>
                         </ul>
                     </li>
 
