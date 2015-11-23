@@ -1088,7 +1088,7 @@ table [class*=span],
   background-color: #c4e3f3;
 }
 form {
-  margin: 0 0 20px;
+  margin: 20px 0 20px;
 }
 fieldset {
   padding: 0;
@@ -1127,8 +1127,8 @@ textarea {
 }
 label {
   display: inline-block;
-  width: 50px;
-  margin-bottom: 5px;
+  width: 60px;
+  text-align: right;
 }
 select,
 textarea,
@@ -1150,9 +1150,9 @@ input[type="color"],
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
-  margin-bottom: 9px;
+  /*margin-bottom: 9px;*/
   font-size: 14px;
-  line-height: 20px;
+  /*line-height: 20px;*/
   color: #555555;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1609,6 +1609,8 @@ select:focus:required:invalid:focus {
 .help-block {
   display: block;
   margin-bottom: 10px;
+  margin-left: 60px;
+  color: red;
 }
 .help-inline {
   display: inline-block;
