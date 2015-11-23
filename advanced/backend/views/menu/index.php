@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <ul class="breadcrumb">
 	<li><?= Html::a('菜单管理', ['index']) ?> <span class="divider">/</span></li>
-	<li class="active">创建菜单</li>
+	<li class="active">菜单列表</li>
 </ul>
 
 <div class="container-fluid">
