@@ -10,13 +10,22 @@ use yii\grid\GridView;
 $this->title = 'Menus';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="header">
+	<h1 class="page-title">菜单管理</h1>
+</div>
+
+<ul class="breadcrumb">
+	<li><?= Html::a('菜单管理', ['index']) ?> <span class="divider">/</span></li>
+	<li class="active">创建菜单</li>
+</ul>
+
+<div class="container-fluid">
+   
+    <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Menu', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('创建菜单', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

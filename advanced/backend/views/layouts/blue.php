@@ -3,7 +3,7 @@ use yii\helpers\Html;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Bootstrap Admin</title>
@@ -35,7 +35,9 @@ use yii\helpers\Html;
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">My Account</a></li>
+                            <li><a tabindex="-1" href="#">个人信息</a></li>
+							<li class="divider"></li>
+							<li><a tabindex="-1" href="#">修改密码</a></li>
                             <li class="divider"></li>
                             <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                             <li class="divider visible-phone"></li>
@@ -89,14 +91,6 @@ use yii\helpers\Html;
 		</div>
 
 		<script src="lib/bootstrap/js/bootstrap.js"></script>
-		<script type="text/javascript">
-			$("[rel=tooltip]").tooltip();
-			$(function () {
-				$('.demo-cancel-click').click(function () {
-					return false;
-				});
-			});
-		</script>
 
 	</body>
 </html>

@@ -10,9 +10,17 @@ $this->title = 'Create Menu';
 $this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="header">
+	<h1 class="page-title">菜单管理</h1>
+</div>
+
+<ul class="breadcrumb">
+	<li><?= Html::a('菜单管理', ['index']) ?> <span class="divider">/</span></li>
+	<li class="active">创建菜单</li>
+</ul>
+
+<div class="container-fluid">
 
     <?= $this->render('_form', [
         'model' => $model,

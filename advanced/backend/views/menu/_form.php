@@ -26,16 +26,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_show')->textInput() ?>
 
-    <?= $form->field($model, 'create_uid')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'create_time')->textInput() ?>
-
-    <?= $form->field($model, 'update_uid')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'update_time')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <div style="margin-left: 100px" class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? '提交' : '提交', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
