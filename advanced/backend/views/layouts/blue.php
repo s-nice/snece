@@ -51,39 +51,39 @@ use yii\helpers\Html;
 		</div>
 		
 		<div class="sidebar-nav">
-			<a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
+			<a href="#dashboard-menu" class="nav-header" data-toggle="collapse">Dashboard <i class="icon-chevron-up"></i></a>
 			<ul id="dashboard-menu" class="nav nav-list collapse in">
-				<li><a href="index.html">Home</a></li>
-				<li ><a href="users.html">Sample List</a></li>
+				<li id='menu_2_1'><?= Html::a('HOME', ['site/index']) ?></li>
+				<li ><?= Html::a('菜单管理', ['menu/index']) ?></li>
 				<li ><a href="user.html">Sample Item</a></li>
 				<li ><a href="media.html">Media</a></li>
 				<li ><a href="calendar.html">Calendar</a></li>
 
 			</ul>
 
-			<a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Account<span class="label label-info">+3</span></a>
+			<a href="#accounts-menu" class="nav-header" data-toggle="collapse">Account <i class="icon-chevron-up"></i></a>
 			<ul id="accounts-menu" class="nav nav-list collapse">
-				<li ><a href="sign-in.html">Sign In</a></li>
+				<li ><?= Html::a('菜单管理', ['menu/index']) ?></li>
 				<li ><a href="sign-up.html">Sign Up</a></li>
 				<li ><a href="reset-password.html">Reset Password</a></li>
 			</ul>
 
-			<a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
+			<a href="#error-menu" class="nav-header collapsed" data-toggle="collapse">Error Pages <i class="icon-chevron-up"></i></a>
 			<ul id="error-menu" class="nav nav-list collapse">
-				<li ><a href="403.html">403 page</a></li>
+				<li id='menu_2_2'><?= Html::a('菜单管理', ['menu/index']) ?></li>
 				<li ><a href="404.html">404 page</a></li>
 				<li ><a href="500.html">500 page</a></li>
 				<li ><a href="503.html">503 page</a></li>
 			</ul>
 
-			<a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>
+			<a href="#legal-menu" class="nav-header" data-toggle="collapse">Legal <i class="icon-chevron-up"></i></a>
 			<ul id="legal-menu" class="nav nav-list collapse">
 				<li ><a href="privacy-policy.html">Privacy Policy</a></li>
 				<li ><a href="terms-and-conditions.html">Terms and Conditions</a></li>
 			</ul>
 
-			<a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>Help</a>
-			<a href="faq.html" class="nav-header" ><i class="icon-comment"></i>Faq</a>
+			<a href="help.html" class="nav-header" >Help</a>
+			<a href="faq.html" class="nav-header" >Faq</a>
 		</div>
 
 		<div class="content">
@@ -91,7 +91,35 @@ use yii\helpers\Html;
 		</div>
 
 		<script src="lib/bootstrap/js/bootstrap.js"></script>
-
+		<script src="lib/jquery.cookie.js"></script>
+		
+		<script>
+			
+			$('.sidebar-nav li').click(function() {
+				$.cookie('menu',$(this).attr('id'),{path:"/"});
+			});
+			
+			$(document).ready(function() {
+				var menu=$.cookie('menu');
+				var arr=new Array();
+				
+				if(menu==null){
+					menu='menu_2_1';
+				}
+				
+				arr = menu.split("_");
+				
+				if(arr[1]==1){
+					$('#'+menu).parent().addClass('in');
+				}else{
+					$("ul").removeClass("in"); 
+					$('#'+menu).parent().addClass('in');
+					$('#'+menu).addClass('active');
+				}
+			});
+			
+		</script>
+		
 	</body>
 </html>
 
