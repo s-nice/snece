@@ -14,7 +14,6 @@ use yii\filters\VerbFilter;
  */
 class MenuController extends Controller
 {
-	public $layout = "blue"; //设置使用的布局文件
 	
     public function behaviors()
     {
@@ -63,7 +62,10 @@ class MenuController extends Controller
     public function actionCreate()
     {
         $model = new menu();
-
+		
+		$model->create_uid=Yii::$app->user->identity->id;
+		$model->create_time=date('Y-m-d H:i:s');
+		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
