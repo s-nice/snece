@@ -302,7 +302,7 @@ a.block-heading:hover,
   font-weight: normal;
   font-size: 1em;
   line-height: 2.5em;
-  padding: 0em .25em;
+  padding: 0em 1em;
   margin-bottom: 0px;
   text-shadow: none;
   text-transform: none;
@@ -751,4 +751,9 @@ table.table.list tr:first-child td {
   body.http-error {
     font-size: .5em;
   }
+}
+
+.has-error input{
+	border:1px solid;
+	border-color:red;
 }
