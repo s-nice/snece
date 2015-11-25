@@ -90,8 +90,8 @@ use yii\helpers\Html;
 			<?= $content ?>
 		</div>
 
-		<script src="lib/bootstrap/js/bootstrap.js"></script>
-		<script src="lib/jquery.cookie.js"></script>
+		<script src="/lib/bootstrap/js/bootstrap.js"></script>
+		<script src="/lib/jquery.cookie.js"></script>
 		
 		<script>
 			
