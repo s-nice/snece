@@ -22,8 +22,9 @@ use yii\helpers\Html;
 		<link rel="shortcut icon" href="/assets/ico/favicon.ico">
 		
 	</head>
-	<?php $this->beginBody() ?>
+	
 	<body class="">
+		<?php $this->beginBody() ?>
 		<div class="navbar">
 			<div class="navbar-inner">
                 <ul class="nav pull-right">
