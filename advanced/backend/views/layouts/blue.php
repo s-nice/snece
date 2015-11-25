@@ -12,14 +12,14 @@ use yii\helpers\Html;
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css">
 
-		<link rel="stylesheet" type="text/css" href="stylesheets/theme.css">
-		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/theme.css">
+		<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css">
 
-		<script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+		<script src="/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 		
-		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="shortcut icon" href="/assets/ico/favicon.ico">
 		
 	</head>
 	<?php $this->beginBody() ?>
