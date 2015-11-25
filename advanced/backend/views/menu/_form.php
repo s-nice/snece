@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use backend\models\Menu;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\menu */
@@ -13,8 +14,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'pid')->textInput() ?>
+	
+	<?= $form->field($model, 'pid')->dropDownList(Menu::getMenus(0)) ?>
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
