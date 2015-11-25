@@ -65,4 +65,20 @@ class Menu extends \yii\db\ActiveRecord
             'update_time' => '更新时间',
         ];
     }
+	
+	public static function getMenus($pid = 0) {
+
+		$arr = array();
+		$arr[0] = '作为一级菜单';
+
+		$menus = Menu::find()->where(['pid' => $pid])->all();
+
+		if ($menus) {
+			foreach ($menus as $key => $value) {
+				$arr[$key] = $value->name;
+			}
+		}
+		return $arr;
+	}
+
 }
