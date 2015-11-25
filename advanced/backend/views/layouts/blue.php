@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 ?>
-
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +22,7 @@ use yii\helpers\Html;
 		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
 		
 	</head>
-	
+	<?php $this->beginBody() ?>
 	<body class="">
 		<div class="navbar">
 			<div class="navbar-inner">
@@ -119,8 +119,7 @@ use yii\helpers\Html;
 			});
 			
 		</script>
-		
+		<?php $this->endBody() ?>
 	</body>
 </html>
-
-
+<?php $this->endPage() ?>
