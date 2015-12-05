@@ -18,6 +18,8 @@ return [
 	'modules' => [
 		'admin' => [
 			'class' => 'mdm\admin\Module',
+			'layout' => 'left-menu',
+			'mainLayout' => '@app/views/layouts/main2.php',
 		]
 	],
 	'as access' => [
@@ -33,7 +35,7 @@ return [
             'enableAutoLogin' => true,
         ],
 		'authManager' => [
-			'class' => 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
+			'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
 		],
 		'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
