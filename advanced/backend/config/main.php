@@ -11,10 +11,6 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-	'aliases' => [
-		// '@mdm/admin' => 'path/to/your/extracted',
-		'@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
-	],
 	'modules' => [
 		'admin' => [
 			'class' => 'mdm\admin\Module',
@@ -34,9 +30,6 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
-		'authManager' => [
-			'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
-		],
 		'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
