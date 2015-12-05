@@ -2,6 +2,7 @@
 use backend\assets\AppAsset;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
+use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -62,6 +63,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
     $this->registerJsFile($assetsUrl . '/plugins/sparkline-chart/jquery.sparkline.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
     $this->registerJsFile($assetsUrl . '/js/chart-sparkline.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
     ?>
+	<?= Html::csrfMetaTags() ?>
 </head>
 <!-- END HEAD -->
 
