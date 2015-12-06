@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class UserController extends Controller
 {
+	public $layout = "main2";
+	
     public function behaviors()
     {
         return [
@@ -62,8 +64,16 @@ class UserController extends Controller
     {
         $model = new user();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+			
+			$model->created_at=time();
+			$model->updated_at=time();
+			$model->auth_key=Yii::$app->security->generateRandomString();
+			$model->password_hash=Yii::$app->security->generatePasswordHash($model->password_hash);
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -80,9 +90,17 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+		$op=$model->password_hash;
+        if ($model->load(Yii::$app->request->post())) {
+			
+			$model->updated_at=time();
+			if($model->password_hash!=$op){
+				$model->password_hash=Yii::$app->security->generatePasswordHash($model->password_hash);
+			}
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
             return $this->render('update', [
                 'model' => $model,
