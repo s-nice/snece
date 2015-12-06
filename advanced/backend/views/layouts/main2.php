@@ -3,6 +3,7 @@ use backend\assets\AppAsset;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Html;
+use mdm\admin\models\searchs\Menu as MenuSearch;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -31,37 +32,21 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
     <meta content="" name="author"/>
 
     <link rel="shortcut icon" href="<?= $assetsUrl ?>/images/favicon.png" type="image/x-icon"/>
-    <!-- Favicon -->
-    <link rel="apple-touch-icon-precomposed" href="<?= $assetsUrl ?>/images/apple-touch-icon-57-precomposed.png">
-    <!-- For iPhone -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="<?= $assetsUrl ?>/images/apple-touch-icon-114-precomposed.png">
-    <!-- For iPhone 4 Retina display -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="<?= $assetsUrl ?>/images/apple-touch-icon-72-precomposed.png">
-    <!-- For iPad -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="<?= $assetsUrl ?>/images/apple-touch-icon-144-precomposed.png">
-    <!-- For iPad Retina display -->
 
     <?php
     $this->head();
-
-    $this->registerCssFile($assetsUrl . '/plugins/pace/pace-theme-flash.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerCssFile($assetsUrl . '/plugins/bootstrap/css/bootstrap-theme.min.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
+    $this->registerCssFile($assetsUrl . '/plugins/bootstrap/css/bootstrap.min.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
     $this->registerCssFile($assetsUrl . '/fonts/font-awesome/css/font-awesome.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerCssFile($assetsUrl . '/css/animate.min.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerCssFile($assetsUrl . '/plugins/perfect-scrollbar/perfect-scrollbar.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
+   
     $this->registerCssFile($assetsUrl . '/css/style.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerCssFile($assetsUrl . '/css/responsive.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
 
     $this->registerJsFile($assetsUrl . '/js/jquery.easing.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+	$this->registerJsFile($assetsUrl . '/plugins/bootstrap/js/bootstrap.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
     $this->registerJsFile($assetsUrl . '/plugins/perfect-scrollbar/perfect-scrollbar.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile($assetsUrl . '/plugins/pace/pace.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile($assetsUrl . '/plugins/viewport/viewportchecker.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+  
     $this->registerJsFile($assetsUrl . '/js/scripts.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile($assetsUrl . '/plugins/sparkline-chart/jquery.sparkline.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile($assetsUrl . '/js/chart-sparkline.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+   
+	$this->registerJsFile($assetsUrl . '/js/jquery.cookie.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
     ?>
 	<?= Html::csrfMetaTags() ?>
 </head>
@@ -89,7 +74,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 		Breadcrumbs::widget([
 			'homeLink' => [
 				'label' => Yii::t('app', 'Home'),
-//                            'url' => Yii::$app->homeUrl,
+				'url' => Yii::$app->homeUrl,
 				'template' => '<li> <a href="' . Yii::$app->homeUrl . '"><i class="fa fa-home"></i>Home</a></li>'
 			],
 			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -126,7 +111,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
                     </a>
                 </li>
                 <li class="last">
-                    <a href="ui-login.html">
+                    <a href="<?= Url::to('/site/logout') ?>">
                         <i class="fa fa-lock"></i>
                         Logout
                     </a>
@@ -178,70 +163,29 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 
         </div>
         <!-- USER INFO - END -->
-
+		<?php
+		$searchModel = new MenuSearch;
+		$menus = $searchModel->getMenus();
+		?>
         <ul class='wraplist'>
+			<?php foreach ($menus as $i => $menu) { ?>
             <li class="">
-                <a href="<?= Url::to(['/site/index']) ?>">
+                <a <?php if($menu->route){ echo "id='menu_1_$menu->id' href='$menu->route'"; }else{ echo 'href="javascript:;"'; } ?> href="<?= Url::to($menu->route) ?>">
 					<i class="fa fa-th"></i>
-                    <span class="title">Home</span>
+                    <span class="title"><?php echo $menu->name; ?></span>
                 </a>
+				<?php $menu2 = $searchModel->getMenus($menu->id); if($menu2){	 ?>
+				<ul class="sub-menu">
+					<?php foreach ($menu2 as $two){ ?>
+					<li>
+						<a id="menu_2_<?php echo $two->id; ?>" class="" href="<?php echo $two->route; ?>"><?php echo $two->name; ?></a>
+					</li>
+					<?php } ?>
+				</ul>
+				<?php } ?>
             </li>
-            <li class="">
-                <a href="<?= Url::to(['/user/admin/index']) ?>">
-                    <i class="fa fa-th"></i>
-                    <span class="title">用户</span>
-                </a>
-            </li>
-			
-            <li class="<?= isset($this->params['menu']['order']) ? 'open' : '' ?>">
-                <a href="<?= Url::to(['/post/index']) ?>">
-                    <i class="fa fa-th"></i>
-                    <span class="title">博客</span>
-                </a>
-            </li>
-            <li class="<?= isset($this->params['menu']['system']) ? 'open' : '' ?>">
-                <a href="javascript:;">
-                    <i class="fa fa-gift"></i>
-                    <span class="title">123</span>
-                    <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['setting']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/system/core/setting/index']) ?>">966</a>
-                    </li>
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['system']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/system/core/system/index']) ?>">333</a>
-                    </li>
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['tree']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/tree/index']) ?>">777</a>
-                    </li>
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['station']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/system/core/station/index']) ?>">666</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="<?= isset($this->params['menu']['auth']) ? 'open' : '' ?>">
-                <a href="javascript:;">
-                    <i class="fa fa-envelope"></i>
-                    <span class="title">333</span>
-                    <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['create']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/auth/auth/create']) ?>">333</a>
-                    </li>
-                    <li>
-                        <a class="<?= isset($this->params['sub-menu']['list-role']) ? 'active' : '' ?>"
-                           href="<?= Url::to(['/auth/auth/list-role']) ?>">222</a>
-                    </li>
-                </ul>
-            </li>
-			
+			<?php } ?>
+           
         </ul>
 
     </div>
@@ -495,6 +439,29 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 </body>
 </html>
 <?php $this->endPage() ?>
-<script type="text/javascript">
 
+<script>
+	$('.wraplist a').click(function() {
+		$.cookie('menu',$(this).attr('id'),{path:"/"});
+	});
+
+	$(document).ready(function() {
+		var menu=$.cookie('menu');
+		var arr=new Array();
+
+		if(menu==null){
+			menu='menu_1_1';
+		}
+
+		arr = menu.split("_");
+
+		if(arr[1]==1){
+			$('#'+menu).parent().addClass('open');
+		}else{
+
+			$('#'+menu).parents('.sub-menu').parent().addClass('open');
+			$('#'+menu).addClass('active');
+			$('#'+menu).parents('.sub-menu').show();
+		}
+	});
 </script>
