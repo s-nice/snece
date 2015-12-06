@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
  */
 class SiteController extends Controller
 {
+	public $layout = "main2"; //设置使用的布局文件
     /**
      * @inheritdoc
      */
@@ -60,7 +61,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-		$this->layout =false;
+		$this->layout ='main';
 		
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -70,7 +71,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->render('sign-in', [
+            return $this->render('login2', [
                 'model' => $model,
             ]);
         }
