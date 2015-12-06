@@ -89,3 +89,22 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+
+
+.form-group .btn{
+	margin-left: 100px;
+}
+.help-block {
+	 margin-left: 80px;
+}
+form label {
+	width: 80px;
+	text-align: right;
+	padding-right: 5px;
+}
+.form-control {
+  display: inline;
+  width: auto;
+  height: 28px;
+}
