@@ -38,6 +38,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 	$this->registerCssFile($assetsUrl . '/css/style.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
     $this->registerCssFile($assetsUrl . '/fonts/font-awesome/css/font-awesome.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
 	
+	$this->registerJsFile($assetsUrl . '/plugins/bootstrap/js/bootstrap.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 	$this->registerJsFile($assetsUrl . '/plugins/perfect-scrollbar/perfect-scrollbar.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 	
 	$this->registerJsFile($assetsUrl . '/js/scripts.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
