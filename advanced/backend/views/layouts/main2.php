@@ -39,9 +39,6 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
     $this->registerCssFile($assetsUrl . '/fonts/font-awesome/css/font-awesome.css', ['depends' => [\yii\web\JqueryAsset::className()]]);
 	
 	$this->registerJsFile($assetsUrl . '/plugins/bootstrap/js/bootstrap.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-    $this->registerJsFile($assetsUrl . '/plugins/perfect-scrollbar/perfect-scrollbar.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
-	
-    $this->registerJsFile($assetsUrl . '/js/scripts.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 	
 	$this->registerJsFile($assetsUrl . '/js/jquery.cookie.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
     ?>
@@ -59,13 +56,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 <div class='quick-area'>
 <div class='pull-left'>
 <ul class="info-menu left-links list-inline list-unstyled">
-<li class="sidebar-toggle-wrap">
-    <a href="#" data-toggle="sidebar" class="sidebar_toggle">
-        <i class="fa fa-bars"></i>
-    </a>
-</li>
-
-<li class="hidden-sm hidden-xs searchform">
+<li>
     <div class="">
 		<?=
 		Breadcrumbs::widget([
@@ -83,7 +74,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 </div>
 <div class='pull-right'>
     <ul class="info-menu right-links list-inline list-unstyled">
-        <li class="profile">
+        <li class="profile showopacity">
             <a href="javascript:;" data-toggle="dropdown" class="toggle">
                 <img src="<?= $dataUrl ?>/profile/profile.png" alt="user-image" class="img-circle img-inline">
                 <span><?= Yii::$app->user->identity->username; ?> <i class="fa fa-angle-down"></i></span>
