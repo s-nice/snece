@@ -22,7 +22,9 @@ return [
 		'class' => 'mdm\admin\components\AccessControl',
 		'allowActions' => [
 			'site/*',
-			'admin/*', // add or remove allowed actions to this list
+			//'admin/*', // add or remove allowed actions to this list
+			'gii/*',
+			'debug/*',
 		],
 	],
 	'components' => [
