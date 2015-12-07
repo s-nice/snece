@@ -12,9 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for user model.
  */
-class UserController extends Controller
+class UserController extends BackendBase
 {
-	public $layout = "main2";
 	
     public function behaviors()
     {
