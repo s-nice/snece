@@ -11,9 +11,9 @@ $this->title = '修改密码';
 $this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-create">
+<div class="user-pw">
 
-    <div class="user-form">
+    <div class="pw-form">
 
 		<?php $form = ActiveForm::begin(); ?>
 
