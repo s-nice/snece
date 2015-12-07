@@ -170,4 +170,24 @@ class UserController extends BackendBase
         }
 	}
 	
+	 /**
+	 * 个人信息修改.
+	 */
+	public function actionProfile() {
+		$uid = Yii::$app->user->identity->id;
+
+		$model = $this->findModel($uid);
+
+		if ($model->load(Yii::$app->request->post())) {
+
+			if ($model->save()) {
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
+		} else {
+			return $this->render('profile', [
+				'model' => $model,
+			]);
+		}
+	}
+
 }
