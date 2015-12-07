@@ -135,4 +135,39 @@ class UserController extends BackendBase
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+	
+	 /**
+     * 修改密码.
+     */
+    public function actionPw()
+    {
+		$uid=Yii::$app->user->identity->id;
+		
+        $model = $this->findModel($uid);
+		$op=$model->password_hash;
+		$model->setScenario('pw');
+		
+        if ($model->load(Yii::$app->request->post())) {
+			
+			Yii::$app->getSecurity()->validatePassword($model->password_hash, $op);
+			if($model->password_hash==TRUE){
+				$model->password_hash=Yii::$app->security->generatePasswordHash($model->newpw);
+			}  else {
+				$model->addError('password_hash', '旧密码不正确！');
+				return $this->render('pw', [
+					'model' => $model,
+				]);
+			}
+
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
+        } else {
+			$model->password_hash='';
+            return $this->render('pw', [
+                'model' => $model,
+            ]);
+        }
+	}
+	
 }
