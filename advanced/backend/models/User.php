@@ -19,7 +19,10 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord
 {
-    /**
+	public $newpw;
+	public $repeat;
+
+	/**
      * @inheritdoc
      */
     public static function tableName()
@@ -27,16 +30,25 @@ class User extends \yii\db\ActiveRecord
         return '{{%user}}';
     }
 
-    /**
+	public function scenarios() {
+		return [
+			'pw' => ['password_hash', 'newpw', 'repeat'],
+		];
+	}
+
+	/**
      * @inheritdoc
      */
     public function rules()
     {
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+			[['password_hash', 'newpw', 'repeat'], 'required', 'on' => ['pw']],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32]
+            [['auth_key'], 'string', 'max' => 32],
+			
+			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '==='],
         ];
     }
 
@@ -55,6 +67,8 @@ class User extends \yii\db\ActiveRecord
             'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
+			'newpw' => '新密码',
+			'repeat' => '重复',
         ];
     }
 }
