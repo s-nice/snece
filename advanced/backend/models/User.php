@@ -48,7 +48,7 @@ class User extends \yii\db\ActiveRecord
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
 			
-			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '==='],
+			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.'],
         ];
     }
 
@@ -68,7 +68,7 @@ class User extends \yii\db\ActiveRecord
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
 			'newpw' => '新密码',
-			'repeat' => '重复',
+			'repeat' => '确认新密码',
         ];
     }
 }
