@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $model backend\models\user */
 
 $this->title = '修改密码';
-$this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['profile']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-pw">
