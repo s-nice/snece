@@ -26,7 +26,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
     -->
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta charset="utf-8"/>
-    <title>Ultra Admin : Dashboard</title>
+    <title>24INT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -52,7 +52,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 <body class=" "><!-- START TOPBAR -->
 <?php $this->beginBody() ?>
 <div class='page-topbar '>
-<div style="width:150px" class='logo-area'>
+<div class='logo-area'>
 
 </div>
 <div class='quick-area'>
@@ -85,25 +85,25 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
                 <li>
                     <a href="#settings">
                         <i class="fa fa-wrench"></i>
-                        Settings
+                        修改密码
                     </a>
                 </li>
                 <li>
                     <a href="#profile">
                         <i class="fa fa-user"></i>
-                        Profile
+                        个人信息
                     </a>
                 </li>
                 <li>
                     <a href="#help">
                         <i class="fa fa-info"></i>
-                        Help
+                        帮助
                     </a>
                 </li>
                 <li class="last">
                     <a href="<?= Url::to('/site/logout') ?>">
                         <i class="fa fa-lock"></i>
-                        Logout
+                        退出
                     </a>
                 </li>
             </ul>
@@ -118,7 +118,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 <div class="page-container row-fluid">
 
 <!-- SIDEBAR - START -->
-<div style="width:150px;height:800px;" class="page-sidebar ">
+<div class="page-sidebar">
 
     <!-- MAIN MENU - START -->
     <div class="page-sidebar-wrapper" id="main-menu-wrapper">
@@ -155,14 +155,9 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
 </div>
 <!--  SIDEBAR - END -->
 <!-- START CONTENT -->
-<section style="margin-left: 150px;" id="main-content" class=" ">
-    <section class="wrapper" style='margin-top:50px;display:inline-block;width:100%;padding:15px 0 0 15px;'>
-        <div class="col-lg-12">
-            <section class="box ">
-                <?= $content; ?>
-            </section>
-        </div>
-
+<section id="main-content">
+    <section class="wrapper">
+		<?= $content; ?>
     </section>
 </section>
 <!-- END CONTENT -->
