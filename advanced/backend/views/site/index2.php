@@ -9,7 +9,7 @@ $this->title = '24INT';
     <div class="jumbotron">
         <h1>24INT</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">欢迎使用.</p>
 
         <p><a class="btn btn-lg btn-success" href="http://www.24int.com" target="_blank">前台</a></p>
     </div>
