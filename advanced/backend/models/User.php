@@ -33,6 +33,7 @@ class User extends \yii\db\ActiveRecord
 	public function scenarios() {
 		return [
 			'pw' => ['password_hash', 'newpw', 'repeat'],
+			'default' => ['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'],
 		];
 	}
 
@@ -42,13 +43,13 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required', 'on' => ['default']],
 			[['password_hash', 'newpw', 'repeat'], 'required', 'on' => ['pw']],
-            [['status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['auth_key'], 'string', 'max' => 32],
+            [['status', 'created_at', 'updated_at'], 'integer', 'on' => ['default']],
+            [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255, 'on' => ['default']],
+            [['auth_key'], 'string', 'max' => 32, 'on' => ['default']],
 			
-			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.'],
+			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.', 'on' => ['pw']],
         ];
     }
 
