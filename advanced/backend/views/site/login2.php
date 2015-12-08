@@ -39,11 +39,6 @@ use yii\bootstrap\ActiveForm;
 		margin-top:-115px;
 		margin-left:-200px;
 	}
-	.form-control {
-		display: inline;
-		width: auto;
-		border-radius: 0px;
-	}
 	
 	.help-block {
 		height:10px;
