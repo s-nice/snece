@@ -30,13 +30,13 @@ use yii\bootstrap\ActiveForm;
 	
 	.site-login {
 		width: 400px;
-		height: 230px;
+		height: 260px;
 		text-align: center;
 		border: 1px solid #ccc;
 		position: absolute;
 		top:50%;
 		left:50%;
-		margin-top:-115px;
+		margin-top:-130px;
 		margin-left:-200px;
 	}
 	
@@ -52,5 +52,9 @@ use yii\bootstrap\ActiveForm;
 	
 	.form-group .btn {
 		margin-left: 20px;
+	}
+	
+	h3 {
+		margin-bottom: 20px;
 	}
 </style>
