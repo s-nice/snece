@@ -62,6 +62,7 @@ class UserController extends BackendBase
     public function actionCreate()
     {
         $model = new user();
+		$model->setScenario('default');
 
         if ($model->load(Yii::$app->request->post())) {
 			
