@@ -12,9 +12,9 @@ use yii\bootstrap\ActiveForm;
     <h3>登录</h3>
 	<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-		<?= $form->field($model, 'username', ['labelOptions' => ['label' => '帐号：','class' => 'your own class']]) ?>
+		<?= $form->field($model, 'username') ?>
 
-		<?= $form->field($model, 'password', ['labelOptions' => ['label' => '密码：','class' => 'your own class']])->passwordInput() ?>
+		<?= $form->field($model, 'password')->passwordInput() ?>
 
 		<div class="form-group">
 			<?= Html::submitButton('登录', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
@@ -46,8 +46,7 @@ use yii\bootstrap\ActiveForm;
 	}
 	
 	form label {
-		width: auto;
-		text-align: right;
+		width: 50px;
 		padding-right: 5px;
 	}
 	.form-group .btn {
