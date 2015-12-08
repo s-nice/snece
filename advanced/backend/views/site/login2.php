@@ -29,12 +29,15 @@ use yii\bootstrap\ActiveForm;
 	}
 	
 	.site-login {
-		margin: 0px auto;
-		text-align: center;
 		width: 400px;
-		border: 1px solid #ccc;
-		margin-top: 300px;
+		height: 230px;
 		text-align: center;
+		border: 1px solid #ccc;
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin-top:-115px;
+		margin-left:-200px;
 	}
 	.form-control {
 		display: inline;
@@ -46,9 +49,7 @@ use yii\bootstrap\ActiveForm;
 		height:10px;
 		margin-left: 0px;
 	}
-	.site-login{
-		text-align: center;
-	}
+	
 	form label {
 		width: auto;
 		text-align: right;
