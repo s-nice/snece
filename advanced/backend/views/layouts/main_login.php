@@ -7,6 +7,7 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 
 AppAsset::register($this);
+$this->title='24INT';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
