@@ -49,8 +49,8 @@ use yii\bootstrap\ActiveForm;
 		width: 50px;
 		padding-right: 5px;
 	}
+	
 	.form-group .btn {
 		margin-left: 20px;
 	}
-	
 </style>
