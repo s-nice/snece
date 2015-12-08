@@ -21,7 +21,7 @@ $this->title='24INT';
 </head>
 <body>
 <?php $this->beginBody() ?>
-	<?= $content ?> 
+	<?= $content ?>
 <?php $this->endBody() ?>
 </body>
 </html>
