@@ -7,35 +7,55 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = '登录';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div style="text-align: center;margin-top: 100px;" class="site-login">
-    <h3 style="margin-bottom:20px"><?= Html::encode($this->title) ?></h3>
+<div class="site-login">
+    <h3>登录</h3>
+	<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-    <div class="row">
-        <div class="">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+		<?= $form->field($model, 'username', ['labelOptions' => ['label' => '帐号：','class' => 'your own class']]) ?>
 
-                <?= $form->field($model, 'username', ['labelOptions' => ['label' => '帐号：','class' => 'your own class']]) ?>
+		<?= $form->field($model, 'password', ['labelOptions' => ['label' => '密码：','class' => 'your own class']])->passwordInput() ?>
 
-                <?= $form->field($model, 'password', ['labelOptions' => ['label' => '密码：','class' => 'your own class']])->passwordInput() ?>
+		<div class="form-group">
+			<?= Html::submitButton('登录', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+		</div>
 
-                <div class="form-group">
-                    <?= Html::submitButton('登录', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+	<?php ActiveForm::end(); ?>
 </div>
+
 <style>
+	html, body {
+		height: auto;
+	}
+	
+	.site-login {
+		margin: 0px auto;
+		text-align: center;
+		width: 400px;
+		border: 1px solid #ccc;
+		margin-top: 300px;
+		text-align: center;
+	}
 	.form-control {
 		display: inline;
-		width: 20%;
+		width: auto;
 		border-radius: 0px;
 	}
+	
 	.help-block {
 		height:10px;
+		margin-left: 0px;
 	}
+	.site-login{
+		text-align: center;
+	}
+	form label {
+		width: auto;
+		text-align: right;
+		padding-right: 5px;
+	}
+	.form-group .btn {
+		margin-left: 20px;
+	}
+	
 </style>
