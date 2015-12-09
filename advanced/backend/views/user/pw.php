@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['profile'
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="pw-form">
+<div class="pw-form content-body">
 
 	<?php $form = ActiveForm::begin(); ?>
 
