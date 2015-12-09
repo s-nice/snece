@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'menuParent.name:text:Parent',
+            'menuParent.name:text:父级菜单',
             'name',
             'route',
             'order',
