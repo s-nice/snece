@@ -32,7 +32,7 @@ class User extends \yii\db\ActiveRecord
 
 	public function scenarios() {
 		return [
-			'pw' => ['password_hash', 'newpw', 'repeat'],
+			'pw' => ['password_hash', 'newpw', 'repeat', 'avatar'],
 			'default' => ['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'],
 		];
 	}
@@ -51,6 +51,7 @@ class User extends \yii\db\ActiveRecord
             [['auth_key'], 'string', 'max' => 32, 'on' => ['default']],
 			
 			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.', 'on' => ['pw']],
+			[['avatar'], 'file', 'on' => ['pw']],
         ];
     }
 
@@ -71,6 +72,7 @@ class User extends \yii\db\ActiveRecord
             'updated_at' => '更新时间',
 			'newpw' => '新密码',
 			'repeat' => '确认新密码',
+			'avatar' => '头像',
         ];
     }
 }
