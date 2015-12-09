@@ -12,13 +12,14 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('rbac-admin', 'Rules');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="role-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<h2><?= Html::encode($this->title) ?></h2>
 
-    <p>
-        <?= Html::a(Yii::t('rbac-admin', 'Create Rule'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<p>
+	<?= Html::a(Yii::t('rbac-admin', 'Create Rule'), ['create'], ['class' => 'btn btn-success']) ?>
+</p>
+
+<div class="role-index content-body">
 
     <?php
     Pjax::begin([

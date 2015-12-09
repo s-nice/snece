@@ -13,20 +13,20 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Permissions'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="auth-item-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<h2><?= Html::encode($this->title) ?></h2>
+<p>
+	<?= Html::a(Yii::t('rbac-admin', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>
+	<?php
+	echo Html::a(Yii::t('rbac-admin', 'Delete'), ['delete', 'id' => $model->name], [
+		'class' => 'btn btn-danger',
+		'data-confirm' => Yii::t('rbac-admin', '确定删除？'),
+		'data-method' => 'post',
+	]);
+	?>
+</p>
 
-    <p>
-        <?= Html::a(Yii::t('rbac-admin', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>
-        <?php
-        echo Html::a(Yii::t('rbac-admin', 'Delete'), ['delete', 'id' => $model->name], [
-            'class' => 'btn btn-danger',
-            'data-confirm' => Yii::t('rbac-admin', 'Are you sure to delete this item?'),
-            'data-method' => 'post',
-        ]);
-        ?>
-    </p>
+<div class="auth-item-view content-body">
 
     <?php
     echo DetailView::widget([

@@ -20,8 +20,10 @@ $this->title = Yii::t('rbac-admin', 'Assignments') . ' : ' . $userName;;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Assignments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $userName;
 ?>
-<div class="assignment-index">
-    <h1><?= $this->title ?></h1>
+
+<h2><?= $this->title ?></h2>
+
+<div class="assignment-index content-body">
 
     <div class="row">
         <div class="col-lg-5">

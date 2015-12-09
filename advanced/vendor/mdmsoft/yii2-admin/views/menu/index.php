@@ -11,14 +11,15 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('rbac-admin', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
+<h2><?= Html::encode($this->title) ?></h2>
+<?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
 
-    <p>
-        <?= Html::a(Yii::t('rbac-admin', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<p>
+	<?= Html::a(Yii::t('rbac-admin', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
+</p>
+
+<div class="menu-index content-body">
 
     <?php
     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);

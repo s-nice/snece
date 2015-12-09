@@ -11,12 +11,13 @@ use yii\helpers\Url;
 $this->title = Yii::t('rbac-admin', 'Routes');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1><?= Html::encode($this->title) ?></h1>
+
+<h2><?= Html::encode($this->title) ?></h2>
 <p>
     <?= Html::a(Yii::t('rbac-admin', 'Create route'), ['create'], ['class' => 'btn btn-success']) ?>
 </p>
 
-<div>
+<div class='content-body'>
     <div class="row">
         <div class="col-lg-5">
             <?= Yii::t('rbac-admin', 'Avaliable') ?>:

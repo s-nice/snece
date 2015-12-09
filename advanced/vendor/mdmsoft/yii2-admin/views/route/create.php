@@ -13,13 +13,14 @@ $this->title = Yii::t('rbac-admin', 'Create Route');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Routes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<h1><?= Yii::t('rbac-admin', 'Create Route') ?></h1>
 
-<div class="create">
+<h2><?= Yii::t('rbac-admin', '创建路由') ?></h2>
+
+<div class="create content-body">
 
 	<?php $form = ActiveForm::begin(); ?>
 
-		<?= $form->field($model, 'route') ?>
+		<?= $form->field($model, 'route', ['labelOptions' => ['label' => '路由','class'=>'control-label']]) ?>
 
 		<div class="form-group">
 			<?= Html::submitButton(Yii::t('rbac-admin', 'Create'), ['class' => 'btn btn-primary']) ?>

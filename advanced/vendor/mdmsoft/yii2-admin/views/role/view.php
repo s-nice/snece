@@ -14,9 +14,10 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Roles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="auth-item-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<h2><?= Html::encode($this->title) ?></h2>
+
+<div class="auth-item-view content-body">
 
     <p>
         <?= Html::a(Yii::t('rbac-admin', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>

@@ -13,9 +13,10 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('rbac-admin', 'Assignments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="assignment-index">
 
-	<h1><?= Html::encode($this->title) ?></h1>
+<h2><?= Html::encode($this->title) ?></h2>
+
+<div class="assignment-index content-body">
 
 	<?php
     Pjax::begin([
