@@ -117,3 +117,6 @@ form label {
 .alert-success{
 	width:20%;
 }
+input[type="file"] {
+	display: inline;
+}
