@@ -44,7 +44,8 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required', 'on' => ['default']],
-			[['password_hash', 'newpw', 'repeat'], 'required', 'on' => ['pw']],
+			[['newpw', 'repeat'], 'required', 'on' => ['pw']],
+			[['password_hash'], 'required', 'message' => '旧密码不能为空.', 'on' => ['pw']],
             [['status', 'created_at', 'updated_at'], 'integer', 'on' => ['default']],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255, 'on' => ['default']],
             [['auth_key'], 'string', 'max' => 32, 'on' => ['default']],
