@@ -185,4 +185,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+	
+	/**
+	* @inheritdoc
+	*/
+	public function attributeLabels() {
+		return [
+			'username' => '用户',
+			'password' => '密码',
+		];
+	}
 }
