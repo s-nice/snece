@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?php $form = ActiveForm::begin(); ?>
 
-	<?= $form->field($model, 'password_hash', ['labelOptions' => ['label' => '旧密码']])->passwordInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'password_hash', ['labelOptions' => ['label' => '旧密码','class'=>'control-label']])->passwordInput(['maxlength' => true]) ?>
 
 	<?= $form->field($model, 'newpw')->passwordInput(['maxlength' => true]) ?>
 
