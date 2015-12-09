@@ -19,7 +19,7 @@ class Route extends \yii\base\Model
     public function rules()
     {
         return[
-            [['route'],'safe'],
+            [['route'],'required','message' => '路由不能为空.'],
         ];
     }
 }
