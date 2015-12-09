@@ -160,15 +160,18 @@ class UserController extends BackendBase
 				]);
 			}
 
-			if($model->save()){
-				return $this->redirect(['view', 'id' => $model->id]);
+			if ($model->save()) {
+				Yii::$app->getSession()->setFlash('success', '修改成功！');
+			} else {
+				Yii::$app->getSession()->setFlash('success', '修改失败！');
 			}
-        } else {
-			$model->password_hash='';
-            return $this->render('pw', [
-                'model' => $model,
-            ]);
-        }
+		} else {
+			$model->password_hash = '';
+		}
+
+		return $this->render('pw', [
+			'model' => $model,
+		]);
 	}
 	
 	 /**
@@ -180,15 +183,16 @@ class UserController extends BackendBase
 		$model = $this->findModel($uid);
 
 		if ($model->load(Yii::$app->request->post())) {
-
-			if ($model->save()) {
-				return $this->redirect(['view', 'id' => $model->id]);
+			if( $model->save()){
+				Yii::$app->getSession()->setFlash('success', '保存成功！');
+			}else{
+				Yii::$app->getSession()->setFlash('error', '保存失败！');
 			}
-		} else {
-			return $this->render('profile', [
-				'model' => $model,
-			]);
 		}
+		return $this->render('profile', [
+			'model' => $model,
+		]);
+		
 	}
 
 }
