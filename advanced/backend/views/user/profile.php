@@ -35,9 +35,11 @@ if (Yii::$app->getSession()->hasFlash('error')) {
 
 <div class="profile-form content-body">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 	
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+	
+	<?= $form->field($model, 'avatar')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '提交' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
