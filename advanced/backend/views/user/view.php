@@ -10,7 +10,7 @@ $this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => '用户列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-view">
+<div class="user-view content-body">
     <p>
         <?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('删除', ['delete', 'id' => $model->id], [
