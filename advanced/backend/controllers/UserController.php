@@ -185,11 +185,11 @@ class UserController extends BackendBase
 
 		if ($model->load(Yii::$app->request->post())) {
 			
-			$model->avatar = UploadedFile::getInstance($model, 'avatar');
+			$avatar = UploadedFile::getInstance($model, 'avatar');
 
-			if ($model->avatar && $model->validate()) {
-				$file='upload/' . time() . mt_rand(1, 999) . '.' . $model->avatar->extension;
-				$model->avatar->saveAs($file);
+			if ($avatar) {
+				$file='upload/' . time() . mt_rand(1, 999) . '.' . $avatar->extension;
+				$avatar->saveAs($file);
 				$model->avatar=$file;
 			}
 
