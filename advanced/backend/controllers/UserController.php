@@ -163,7 +163,7 @@ class UserController extends BackendBase
 			if ($model->save()) {
 				Yii::$app->getSession()->setFlash('success', '修改成功！');
 			} else {
-				Yii::$app->getSession()->setFlash('success', '修改失败！');
+				Yii::$app->getSession()->setFlash('error', '修改失败！');
 			}
 		} else {
 			$model->password_hash = '';
