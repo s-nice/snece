@@ -39,18 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		<link rel="stylesheet" href="ace/css/ace.min.css" />
 		<link rel="stylesheet" href="ace/css/ace-rtl.min.css" />
 
-		<!--[if lte IE 8]>
-		  <link rel="stylesheet" href="ace/css/ace-ie.min.css" />
-		<![endif]-->
-
-		<!-- inline styles related to this page -->
-
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-		<!--[if lt IE 9]>
-		<script src="ace/js/html5shiv.js"></script>
-		<script src="ace/js/respond.min.js"></script>
-		<![endif]-->
 	</head>
 
 	<body class="login-layout">
