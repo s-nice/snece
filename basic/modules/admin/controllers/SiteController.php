@@ -18,10 +18,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['admin/site/logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['admin/site/logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -74,7 +74,7 @@ class SiteController extends Controller
 
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        Yii::$app->admin->logout();
 
         //return $this->goHome();
 		$this->redirect('/admin/site/login');
