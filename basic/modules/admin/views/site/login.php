@@ -24,10 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		<link href="/ace/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/ace/css/font-awesome.min.css" />
 
-		<!--[if IE 7]>
-		  <link rel="stylesheet" href="/ace/css/font-awesome-ie7.min.css" />
-		<![endif]-->
-
 		<!-- page specific plugin styles -->
 
 		<!-- fonts -->
@@ -37,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		<!-- ace styles -->
 
 		<link rel="stylesheet" href="/ace/css/ace.min.css" />
-		<link rel="stylesheet" href="/ace/css/ace-rtl.min.css" />
 
 	</head>
 
@@ -48,10 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="center">
 				<h1>
 					<i class="icon-leaf green"></i>
-					<span class="red">Ace</span>
+					<span class="red">15INT</span>
 					<span class="white">后台管理</span>
 				</h1>
-				<h4 class="blue">&copy; Company Name</h4>
+				<h4 class="black">&copy; Company Name</h4>
 			</div>
 
 			<div class="space-6"></div>
