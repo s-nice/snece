@@ -289,7 +289,7 @@ AppAsset::register($this);
 								<img class="nav-user-photo" src="/ace/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									
-									<?= Yii::$app->user->identity->username ?>
+									<?= Yii::$app->admin->identity->username ?>
 								</span>
 
 								<i class="icon-caret-down"></i>
