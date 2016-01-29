@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8" />
 		<title>登录 - Admin</title>
@@ -24,8 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		<link href="/ace/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/ace/css/font-awesome.min.css" />
 
-		<!-- page specific plugin styles -->
-
 		<!-- fonts -->
 
 		<link rel="stylesheet" href="/ace/css/ace-fonts.css" />
@@ -37,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	</head>
 
 	<body class="login-layout">
-
 
 		<div class="login-container">
 			<div class="center">
@@ -64,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<?php
 							$form = ActiveForm::begin([
 										'id' => 'login-form',
-										'options' => ['class' => 'form-horizontal'],
+										//'options' => ['class' => 'form-horizontal'],
 										'fieldConfig' => [
 											'template' => "{label}\n<span class=\"block input-icon input-icon-right\">{input}</span>\n<div class=\"col-lgx\">{error}</div>",
 											'labelOptions' => ['class' => 'block clearfix'],
@@ -84,10 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
 							</div>
 
 							<?php ActiveForm::end(); ?>
-
-
-
-
 
 						</div><!-- /widget-main -->
 
