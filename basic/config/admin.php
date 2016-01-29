@@ -15,7 +15,7 @@ $config = [
 	],
 	
 	//默认控制器
-	'defaultRoute' => 'admin/default',
+	'defaultRoute' => 'admin/site/login',
 	
     'components' => [
         'request' => [
@@ -49,6 +49,17 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+		
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'enableStrictParsing' => false,
+			'rules' => [
+				'<controller:\w+>s' => '<controller>/index',
+				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+			],
+		],
+		
     ],
     'params' => $params,
 ];
