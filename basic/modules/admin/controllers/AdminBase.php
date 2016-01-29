@@ -10,7 +10,7 @@ class AdminBase extends Controller
 	
 	public function init() {
 		
-		if (!isset(Yii::$app->user->identity->username)){
+		if (!isset(Yii::$app->admin->identity->username)){
 			$this->redirect(array('/admin/site/login'));
 		}
 	
