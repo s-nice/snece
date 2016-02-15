@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 							<div class="clearfix">
 
-								<?= Html::submitButton('Login', ['class' => 'width-35 pull-right btn btn-sm btn-primary', 'name' => 'login-button']) ?>
+								<?= Html::submitButton('登录', ['class' => 'width-35 pull-right btn btn-sm btn-primary', 'name' => 'login-button']) ?>
 
 							</div>
 
