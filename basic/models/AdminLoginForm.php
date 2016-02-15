@@ -32,6 +32,17 @@ class AdminLoginForm extends Model
         ];
     }
 
+	/**
+	 * Declares attribute labels.
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'username'=>'账号',
+			'password'=>'密码',
+		);
+	}
+	
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
