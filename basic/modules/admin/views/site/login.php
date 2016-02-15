@@ -6,8 +6,6 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="login-container">
 			<div class="center">
 				<h1>
-					<i class="icon-leaf green"></i>
+					<!--<i class="icon-leaf green"></i>-->
 					<span class="red">15INT</span>
 					<span class="white">后台管理</span>
 				</h1>
-				<h4 class="black">&copy; Company Name</h4>
+				<!--<h4 class="black">&copy; Company Name</h4>-->
 			</div>
 
 			<div class="space-6"></div>
