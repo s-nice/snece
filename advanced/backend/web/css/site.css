@@ -120,3 +120,7 @@ form label {
 input[type="file"] {
 	display: inline;
 }
+
+.table-striped > tbody > tr:hover{
+	background: #e0f3ff;
+}
