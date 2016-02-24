@@ -361,7 +361,7 @@ a:hover, a:focus {
     max-height: 60px;
 }
 .page-topbar .logo-area {
-    width: 150px;
+    width: 200px;
     background-color: #9972b5;
     display: block;
     min-height: 60px;
@@ -699,7 +699,7 @@ a:hover, a:focus {
 
 .page-sidebar {
     height: auto;
-    width: 150px;
+    width: 200px;
     position: fixed;
     padding: 0px;
     background-color: rgba(50, 50, 58, 1.0);
@@ -4623,7 +4623,7 @@ code {
     z-index: 99;
 }
 #main-content {
-    margin-left: 150px;
+    margin-left: 200px;
     display: block;
 }
 #main-content.hor_menu {
