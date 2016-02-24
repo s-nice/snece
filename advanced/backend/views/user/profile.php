@@ -40,7 +40,11 @@ if (Yii::$app->getSession()->hasFlash('error')) {
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 	
 	<?= $form->field($model, 'avatar')->fileInput() ?>
-
+	<?php if($model->avatar){ ?>
+	<div class="form-group" style="margin-left: 80px">
+	<img height="100" src="<?= '/'.$model->avatar ?>" />
+	</div>
+	<?php } ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '提交' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
