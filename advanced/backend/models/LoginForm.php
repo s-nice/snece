@@ -33,7 +33,7 @@ class LoginForm extends Model
 	*/
 	public function attributeLabels() {
 		return [
-			'username' => '用户名',
+			'username' => '账号',
 			'password' => '密码',
 		];
 	}
@@ -50,7 +50,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, '用户名或密码错误.');
+                $this->addError($attribute, '账号或密码错误.');
             }
         }
     }
