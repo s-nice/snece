@@ -7,18 +7,26 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AdverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Advers';
+$this->title = '广告位';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="adver-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="page-title">
+
+	<div class="pull-left">
+		<h1 class="title"><?= Html::encode($this->title) ?></h1>
+	</div>
+
+	<div class="pull-right hidden-xs">
+		<?= Html::a('创建广告位', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
+	</div>
+
+</div>
+
+<div class="adver-index  content-body">
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Adver', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+	
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -29,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'remark',
             'create_uid',
-            'create_at',
+            'create_at:datetime',
             // 'update_at',
 
             ['class' => 'yii\grid\ActionColumn'],

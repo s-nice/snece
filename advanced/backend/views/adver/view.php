@@ -7,23 +7,28 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Adver */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Advers', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '广告位', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="adver-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="page-title">
+	<div class="pull-left">
+		<h1 class="title">查看广告位 <?= $model->name ?></h1>
+	</div>
+	<div class="pull-right hidden-xs">
+		<?= Html::a('创建', ['create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('删除', ['delete', 'id' => $model->id], [
+			'class' => 'btn btn-danger',
+			'data' => [
+				'confirm' => '确定删除？',
+				'method' => 'post',
+			],
+		]) ?>
+	</div>
+</div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="adver-view content-body">
 
     <?= DetailView::widget([
         'model' => $model,
@@ -32,8 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'remark',
             'create_uid',
-            'create_at',
-            'update_at',
+            'create_at:datetime',
+            'update_at:datetime',
         ],
     ]) ?>
 
