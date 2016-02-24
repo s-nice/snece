@@ -78,7 +78,7 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
     <ul class="info-menu right-links list-inline list-unstyled">
         <li class="profile showopacity">
             <a href="javascript:;" data-toggle="dropdown" class="toggle">
-                <img src="<?= $dataUrl ?>/profile/profile.png" alt="user-image" class="img-circle img-inline">
+                <img src="/<?= Yii::$app->user->identity->avatar; ?>" alt="user-image" class="img-circle img-inline">
                 <span><?= Yii::$app->user->identity->username; ?> <i class="fa fa-angle-down"></i></span>
             </a>
             <ul class="dropdown-menu profile animated fadeIn">
