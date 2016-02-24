@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 
 	<div class="pull-right hidden-xs">
-		<?= Html::a('创建广告位', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
+		<?= Html::a('创建', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
 	</div>
 
 </div>
