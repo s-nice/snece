@@ -9,7 +9,7 @@ use yii\bootstrap\Alert;
 /* @var $form yii\widgets\ActiveForm */
 
 $this->title = '个人信息';
-$this->params['breadcrumbs'][] = ['label' => '修改密码', 'url' => ['pw']];
+//$this->params['breadcrumbs'][] = ['label' => '修改密码', 'url' => ['pw']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

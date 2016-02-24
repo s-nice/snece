@@ -9,7 +9,7 @@ use yii\bootstrap\Alert;
 /* @var $form yii\widgets\ActiveForm */
 
 $this->title = '修改密码';
-$this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['profile']];
+//$this->params['breadcrumbs'][] = ['label' => '个人信息', 'url' => ['profile']];
 $this->params['breadcrumbs'][] = $this->title;
 if (Yii::$app->getSession()->hasFlash('success')) {
 	echo Alert::widget([
