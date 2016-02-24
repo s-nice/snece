@@ -145,26 +145,23 @@ class UserController extends BackendBase
     {
 		$uid=Yii::$app->user->identity->id;
 		
-        $model = $this->findModel($uid);
+		$model = $this->findModel($uid);
 		$op=$model->password_hash;
 		$model->setScenario('pw');
 		
         if ($model->load(Yii::$app->request->post())) {
 			
-			Yii::$app->getSecurity()->validatePassword($model->password_hash, $op);
-			if($model->password_hash==TRUE){
+			$return=Yii::$app->getSecurity()->validatePassword($model->password_hash, $op);
+			
+			if($return==true){
 				$model->password_hash=Yii::$app->security->generatePasswordHash($model->newpw);
-			}  else {
-				$model->addError('password_hash', '旧密码不正确！');
-				return $this->render('pw', [
-					'model' => $model,
-				]);
-			}
-
-			if ($model->save()) {
-				Yii::$app->getSession()->setFlash('success', '修改成功！');
+				if ($model->save()) {
+					Yii::$app->getSession()->setFlash('success', '密码修改成功！');
+				} else {
+					Yii::$app->getSession()->setFlash('error', '密码修改失败！');
+				}
 			} else {
-				Yii::$app->getSession()->setFlash('error', '修改失败！');
+				$model->addError('password_hash', '旧密码不正确！');
 			}
 		} else {
 			$model->password_hash = '';
