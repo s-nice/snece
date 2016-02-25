@@ -8,6 +8,7 @@ use backend\models\LinksSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * LinksController implements the CRUD actions for Links model.
@@ -61,9 +62,21 @@ class LinksController extends BackendBase
     public function actionCreate()
     {
         $model = new Links();
+		$model->create_at=time();
+		$model->update_at=time();
+		$model->create_uid=Yii::$app->user->identity->id;
+		
+        if ($model->load(Yii::$app->request->post())) {
+			$img = UploadedFile::getInstance($model, 'img');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+			if ($img) {
+				$file='upload/' . time() . mt_rand(1, 999) . '.' . $img->extension;
+				$img->saveAs($file);
+				$model->img=$file;
+			}
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -80,9 +93,23 @@ class LinksController extends BackendBase
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+		
+        if ($model->load(Yii::$app->request->post())) {
+			
+			$model->update_at=time();
+			
+			$img = UploadedFile::getInstance($model, 'img');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+			if ($img) {
+				$file='upload/' . time() . mt_rand(1, 999) . '.' . $img->extension;
+				$img->saveAs($file);
+				$model->img=$file;
+			}
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
+            
         } else {
             return $this->render('update', [
                 'model' => $model,
