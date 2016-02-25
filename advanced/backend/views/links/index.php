@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'img',
-            'link',
+            'link:url',
             'orderid',
             // 'create_uid',
             // 'create_at',
