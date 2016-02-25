@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<div class="adver-index  content-body">
+<div class="adver-index content-body">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 	
