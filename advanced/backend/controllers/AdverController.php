@@ -61,7 +61,9 @@ class AdverController extends BackendBase
     public function actionCreate()
     {
         $model = new Adver();
-
+		$model->create_at=time();
+		$model->update_at=time();
+		$model->create_uid=Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
