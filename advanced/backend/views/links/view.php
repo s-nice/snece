@@ -35,8 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'link',
             'orderid',
             'create_uid',
-            'create_at',
-            'update_at',
+            'create_at:datetime',
+            'update_at:datetime',
         ],
     ]) ?>
 
