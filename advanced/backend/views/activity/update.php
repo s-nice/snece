@@ -5,14 +5,25 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Activity */
 
-$this->title = 'Update Activity: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Activities', 'url' => ['index']];
+$this->title = '更新 活动: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => '活动列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '更新';
 ?>
-<div class="activity-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="page-title">
+
+	<div class="pull-left">
+		<h1 class="title"><?= $this->title ?></h1>
+	</div>
+
+	<div class="pull-right hidden-xs">
+		<?= Html::a('返回', ['index'], ['class' => 'btn btn-primary']) ?>
+	</div>
+
+</div>
+
+<div class="activity-update content-body">
 
     <?= $this->render('_form', [
         'model' => $model,
