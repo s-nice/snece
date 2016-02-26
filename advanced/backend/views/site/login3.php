@@ -67,7 +67,7 @@ body {
 }
 
 h1 {
-	height: 80px;
+	height: 60px;
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	color: #505458;
