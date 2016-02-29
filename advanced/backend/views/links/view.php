@@ -32,6 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'img',
+			[
+				'attribute'=>'img',
+				'format' => 'raw',
+				'value' => html::img('/'.$model->img,array('width'=>200)),
+			],
             'link',
             'orderid',
             'create_uid',
