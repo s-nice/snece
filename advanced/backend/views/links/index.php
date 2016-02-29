@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\LinksSearch */
@@ -25,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="links-index content-body">
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+	<?php Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -43,6 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);Pjax::end(); ?>
 
 </div>

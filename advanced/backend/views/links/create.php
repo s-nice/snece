@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\Links */
 
 $this->title = '创建友情链接';
-$this->params['breadcrumbs'][] = ['label' => 'Links', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '友情链接', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
