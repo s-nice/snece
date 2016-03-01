@@ -30,14 +30,18 @@ class BasicController extends BackendBase
      * Lists all Basic models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($pid='')
     {
         $searchModel = new BasicSearch();
+		$searchModel->pid=$pid;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+		$parent=Basic::find()->where(['id' => $pid])->one();
+		
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+			'parent'=>$parent,
         ]);
     }
 
@@ -48,8 +52,11 @@ class BasicController extends BackendBase
      */
     public function actionView($id)
     {
+		$model=$this->findModel($id);
+		$parent=Basic::find()->where(['id' => $model->pid])->one();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+			'parent'=>$parent,
         ]);
     }
 
@@ -58,15 +65,20 @@ class BasicController extends BackendBase
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($pid='')
     {
         $model = new Basic();
 
+		$model->pid=$pid;
+		
+		$parent=Basic::find()->where(['id' => $pid])->one();
+		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+				'parent' => $parent,
             ]);
         }
     }
@@ -81,11 +93,14 @@ class BasicController extends BackendBase
     {
         $model = $this->findModel($id);
 
+		$parent=Basic::find()->where(['id' => $model->pid])->one();
+		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+				'parent'=>$parent,
             ]);
         }
     }
