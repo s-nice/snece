@@ -51,4 +51,19 @@ class Adver extends \yii\db\ActiveRecord
             'update_at' => '更新时间',
         ];
     }
+	
+	//获取广告位列表（数组）
+	public static function getDropList() {
+		$data = Adver::find()->All();
+		
+		$dropList = array();
+		if($data){
+			foreach ($data as $key => $row) {
+				$dropList[$row['id']] = $row['name'];
+			}
+		}
+		
+		return $dropList;
+	}
+	
 }

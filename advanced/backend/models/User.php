@@ -78,4 +78,10 @@ class User extends \yii\db\ActiveRecord
 			
         ];
     }
+	
+	public static function getName($id){
+		$name=User::find()->where(['id' => $id])->one()->username;
+		return $name;
+	}
+	
 }
