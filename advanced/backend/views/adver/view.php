@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Adver */
@@ -36,7 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'remark',
-            'create_uid',
+			//'create_uid',
+			['label'=>'创建者','value'=>User::getName($model->create_uid),],
             'create_at:datetime',
             'update_at:datetime',
         ],

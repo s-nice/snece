@@ -2,12 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Ad */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Ads', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '广告列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ad-view">
@@ -15,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '确定删除吗?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,13 +32,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'pid',
             'title',
-            'img',
+            //'img',
+			[
+				'attribute'=>'img',
+				'format' => 'raw',
+				'value' => html::img('/'.$model->img,array('width'=>200)),
+			],
             'link',
             'orderid',
-            'is_show',
-            'create_uid',
-            'create_at',
-            'update_at',
+            //'is_show',
+			[
+				'attribute'=>'is_show',
+				'format' => 'raw',
+				'value' => $model->is_show == 1 ? '显示' : '不显示',
+			],
+            //'create_uid',
+			['label'=>'创建者','value'=>User::getName($model->create_uid),],
+            'create_at:datetime',
+            'update_at:datetime',
         ],
     ]) ?>
 

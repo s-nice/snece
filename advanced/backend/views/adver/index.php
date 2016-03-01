@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use backend\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AdverSearch */
@@ -36,8 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'remark',
-            'create_uid',
+            //'remark',
+			//'create_uid',
+			[
+				'label' => '创建者',
+				'format' => 'raw',
+				'value' => function ($model) {
+					return User::getName($model->create_uid);
+				},
+			],
             'create_at:datetime',
             // 'update_at',
 
