@@ -36,8 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'img',
-            'link:url',
-            'orderid',
+            //'link:url',
+			[
+				'attribute' => 'link',
+				'value' => function ($model) {
+					return Html::a($model->link,$model->link,array('target'=>'_blank'));
+				},
+				'format' => 'raw',
+			],
+			'orderid',
             // 'create_uid',
             // 'create_at',
             // 'update_at',

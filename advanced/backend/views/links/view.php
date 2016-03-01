@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Links */
@@ -31,15 +32,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'img',
+            //'img',
 			[
 				'attribute'=>'img',
 				'format' => 'raw',
 				'value' => html::img('/'.$model->img,array('width'=>200)),
 			],
-            'link',
+            //'link',
+			[
+				'attribute'=>'link',
+				'format' => 'raw',
+				'value' => Html::a($model->link,$model->link,array('target'=>'_blank')),
+			],
             'orderid',
-            'create_uid',
+            //'create_uid',
+			['label'=>'创建者','value'=>User::getName($model->create_uid),],
             'create_at:datetime',
             'update_at:datetime',
         ],
