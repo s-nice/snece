@@ -97,14 +97,16 @@ class AdController extends BackendBase
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+		$oldimg=$model->img;
+        if ($model->load(Yii::$app->request->post())) {
 			$img = UploadedFile::getInstance($model, 'img');
 			
             if ($img) {
 				$file='upload/' . time() . mt_rand(1, 999) . '.' . $img->extension;
 				$img->saveAs($file);
 				$model->img=$file;
+			}else{
+				$model->img=$oldimg;
 			}
 			
 			if($model->save()){
