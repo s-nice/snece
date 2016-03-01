@@ -8,6 +8,8 @@ use backend\models\AdSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use backend\models\Adver;
 
 /**
  * AdController implements the CRUD actions for Ad model.
@@ -61,12 +63,27 @@ class AdController extends BackendBase
     public function actionCreate()
     {
         $model = new Ad();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+		$model->create_at=time();
+		$model->update_at=time();
+		$model->create_uid=Yii::$app->user->identity->id;
+		$model->is_show=1;
+        if ($model->load(Yii::$app->request->post())) {
+			$img = UploadedFile::getInstance($model, 'img');
+			if ($img) {
+				$file='upload/' . time() . mt_rand(1, 999) . '.' . $img->extension;
+				$img->saveAs($file);
+				$model->img=$file;
+			}
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
+			
+			$adverlist = Adver::getDropList();
+			
             return $this->render('create', [
                 'model' => $model,
+				'adverlist'=>$adverlist,
             ]);
         }
     }
@@ -82,10 +99,22 @@ class AdController extends BackendBase
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+			$img = UploadedFile::getInstance($model, 'img');
+			
+            if ($img) {
+				$file='upload/' . time() . mt_rand(1, 999) . '.' . $img->extension;
+				$img->saveAs($file);
+				$model->img=$file;
+			}
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
+			$adverlist = Adver::getDropList();
             return $this->render('update', [
                 'model' => $model,
+				'adverlist'=>$adverlist,
             ]);
         }
     }
