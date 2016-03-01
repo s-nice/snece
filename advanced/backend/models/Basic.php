@@ -43,7 +43,7 @@ class Basic extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '主键自增ID',
+            'id' => 'ID',
             'name' => '名称',
             'pid' => '分类',
             'orderid' => '排序',
