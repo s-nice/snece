@@ -6,13 +6,24 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Basic */
 
-$this->title = 'Create Basic';
-$this->params['breadcrumbs'][] = ['label' => 'Basics', 'url' => ['index']];
+$this->title = '创建'.$parent->name;
+$this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => ['index', 'pid' => $parent->id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="basic-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="page-title">
+
+	<div class="pull-left">
+		<h1 class="title"><?= Html::encode($this->title) ?></h1>
+	</div>
+
+	<div class="pull-right hidden-xs">
+		<?= Html::a('返回', ['index', 'pid' => $parent->id], ['class' => 'btn btn-primary']) ?>
+	</div>
+
+</div>
+
+<div class="basic-create content-body">
 
     <?= $this->render('_form', [
         'model' => $model,

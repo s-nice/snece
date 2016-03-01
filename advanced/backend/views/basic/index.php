@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\BasicSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Basics';
+$this->title = $parent->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="basic-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Basic', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('创建'.$parent->name, ['create', 'pid' => $parent->id], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
