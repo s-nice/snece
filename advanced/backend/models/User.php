@@ -73,6 +73,9 @@ class User extends \yii\db\ActiveRecord
 			'newpw' => '新密码',
 			'repeat' => '确认新密码',
 			'avatar' => '头像',
+			'type' => '身份类型',
+			'phone' => '手机号码',
+			
         ];
     }
 }
