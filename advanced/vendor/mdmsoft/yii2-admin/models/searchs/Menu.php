@@ -83,7 +83,7 @@ class Menu extends MenuModel
     }
 	
 	public function getMenus($pid=null){
-		$menus = Menu::find()->where(['parent' => $pid])->all();
+		$menus = Menu::find()->where(['parent' => $pid])->orderBy('id')->all();
 		
 		return $menus;
 	}
