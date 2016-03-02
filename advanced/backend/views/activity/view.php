@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use backend\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Activity */
@@ -32,12 +33,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'template',
-            'link',
+            //'link',
+			[
+				'attribute'=>'link',
+				'format' => 'raw',
+				'value' => Html::a($model->link,$model->link,array('target'=>'_blank')),
+			],
             'remark',
             'orderid',
-            'create_uid',
-            'create_at',
-            'update_at',
+            //'create_uid',
+			['label'=>'创建者','value'=>User::getName($model->create_uid),],
+            'create_at:datetime',
+            'update_at:datetime',
         ],
     ]) ?>
 

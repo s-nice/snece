@@ -28,8 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'template',
-            'link',
-            'remark',
+            //'link',
+			[
+				'attribute' => 'link',
+				'value' => function ($model) {
+					return Html::a($model->link,$model->link,array('target'=>'_blank'));
+				},
+				'format' => 'raw',
+			],
+            //'remark',
             // 'orderid',
             // 'create_uid',
             // 'create_at',
