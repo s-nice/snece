@@ -8,7 +8,7 @@ use backend\models\User;
 /* @var $model backend\models\Links */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Links', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '友情链接列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="links-view">
