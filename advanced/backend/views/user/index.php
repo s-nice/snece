@@ -8,18 +8,18 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '用户列表';
+$this->title = '账号列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="page-title">
 
 	<div class="pull-left">
-		<h1 class="title">用户列表</h1>
+		<h1 class="title"><?= Html::encode($this->title) ?></h1>
 	</div>
 
 	<div class="pull-right hidden-xs">
-		<?= Html::a('创建用户', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
+		<?= Html::a('创建账号', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
 	</div>
 
 </div>

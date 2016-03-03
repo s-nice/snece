@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\user */
 
-$this->title = '创建用户';
-$this->params['breadcrumbs'][] = ['label' => '用户列表', 'url' => ['index']];
+$this->title = '创建账号';
+$this->params['breadcrumbs'][] = ['label' => '账号列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
