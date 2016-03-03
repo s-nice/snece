@@ -64,8 +64,24 @@ class UserController extends BackendBase
     {
         $model = new user();
 		$model->setScenario('default');
+		$model->status=1;
 
         if ($model->load(Yii::$app->request->post())) {
+			
+			$user=User::find()->where(['username' => $model->username])->one();
+			if($user){
+				$model->addError('username','用户名已存在.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
+			$pwl=strlen($model->password_hash);
+			if($pwl<6){
+				$model->addError('password_hash','密码不能少于6位.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
 			
 			$model->created_at=time();
 			$model->updated_at=time();
@@ -95,8 +111,11 @@ class UserController extends BackendBase
         if ($model->load(Yii::$app->request->post())) {
 			
 			$model->updated_at=time();
-			if($model->password_hash!=$op){
-				$model->password_hash=Yii::$app->security->generatePasswordHash($model->password_hash);
+			
+			$new=Yii::$app->security->generatePasswordHash($model->password_hash);
+			
+			if($new!=$op){
+				$model->password_hash=$new;
 			}
 			
 			if($model->save()){
