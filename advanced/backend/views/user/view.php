@@ -27,20 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
 	</div>
 </div>
 
-<div class="user-view content-body">
+<div class="user-view">
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
             'username',
-			'type',
+			
 			'phone',
            // 'auth_key',
            // 'password_hash',
            // 'password_reset_token',
             'email:email',
-            'status',
+			'type',
+            //'status',
+			[
+				'attribute'=>'status',
+				'format' => 'raw',
+				'value' => $model->status == 10 ? '正常' : '锁定',
+			],
             'created_at:datetime',
             'updated_at:datetime',
         ],

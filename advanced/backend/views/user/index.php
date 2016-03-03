@@ -41,7 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_hash',
             //'password_reset_token',
             'email',
-            'status',
+            //'status',
+			[
+				'attribute' => 'status',
+				'value' => function ($model) {
+					return $model->status == 10 ? '正常' : '锁定';
+				},
+			],
 			'type',
             // 'created_at',
             // 'updated_at',
