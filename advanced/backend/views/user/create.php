@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="page-title">
 
 	<div class="pull-left">
-		<h1 class="title">创建用户</h1>
+		<h1 class="title"><?= $this->title ?></h1>
 	</div>
 
 	<div class="pull-right hidden-xs">
