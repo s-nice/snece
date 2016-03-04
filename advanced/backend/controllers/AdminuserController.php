@@ -62,9 +62,33 @@ class AdminuserController extends BackendBase
     public function actionCreate()
     {
         $model = new Adminuser();
+		$model->setScenario('default');
+		$model->status=1;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $user=Adminuser::find()->where(['username' => $model->username])->one();
+			if($user){
+				$model->addError('username','用户名已存在.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
+			$pwl=strlen($model->password_hash);
+			if($pwl<6){
+				$model->addError('password_hash','密码不能少于6位.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
+			
+			$model->created_at=time();
+			$model->updated_at=time();
+			$model->auth_key=Yii::$app->security->generateRandomString();
+			$model->password_hash=Yii::$app->security->generatePasswordHash($model->password_hash);
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,9 +105,35 @@ class AdminuserController extends BackendBase
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+		$op=$model->password_hash;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $user=Adminuser::find()->where(['username' => $model->username])->one();
+			if($user){
+				$model->addError('username','用户名已存在.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
+			$pwl=strlen($model->password_hash);
+			if($pwl<6){
+				$model->addError('password_hash','密码不能少于6位.');
+				return $this->render('create', [
+					'model' => $model,
+				]);
+			}
+			
+			$model->updated_at=time();
+			
+			$new=Yii::$app->security->generatePasswordHash($model->password_hash);
+			
+			if($new!=$op){
+				$model->password_hash=$new;
+			}
+			
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}
         } else {
             return $this->render('update', [
                 'model' => $model,
