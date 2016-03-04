@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <h2><?= Html::encode($this->title) ?></h2>
 
-<div class="assignment-index content-body">
+<div class="assignment-index">
 
 	<?php
     Pjax::begin([
