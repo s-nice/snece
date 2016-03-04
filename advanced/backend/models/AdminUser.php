@@ -22,6 +22,9 @@ use Yii;
  */
 class Adminuser extends \yii\db\ActiveRecord
 {
+	public $newpw;
+	public $repeat;
+	
     /**
      * @inheritdoc
      */
@@ -29,6 +32,13 @@ class Adminuser extends \yii\db\ActiveRecord
     {
         return '{{%adminuser}}';
     }
+	
+	public function scenarios() {
+		return [
+			'pw' => ['password_hash', 'newpw', 'repeat', 'avatar'],
+			'default' => ['username', 'auth_key', 'password_hash', 'phone', 'email', 'created_at', 'updated_at'],
+		];
+	}
 
     /**
      * @inheritdoc
@@ -42,7 +52,10 @@ class Adminuser extends \yii\db\ActiveRecord
             [['auth_key'], 'string', 'max' => 32],
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['avatar'], 'string', 'max' => 120],
-            [['phone'], 'string', 'max' => 20]
+            [['phone'], 'string', 'max' => 20],
+			[['password_hash','repeat','newpw'], 'required', 'message' => '旧密码不能为空.', 'on' => ['pw']],
+			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.', 'on' => ['pw']],
+			[['avatar'], 'file', 'on' => ['pw']],
         ];
     }
 
@@ -64,6 +77,8 @@ class Adminuser extends \yii\db\ActiveRecord
             'type' => '身份类型',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
+			'newpw' => '新密码',
+			'repeat' => '确认新密码',
         ];
     }
 }
