@@ -14,7 +14,7 @@ return [
 	'modules' => [
 		'admin' => [
 			'class' => 'mdm\admin\Module',
-			'layout' => 'left-menu',
+			'layout' => 'top-menu',
 			'mainLayout' => '@app/views/layouts/main2.php',
 		]
 	],
