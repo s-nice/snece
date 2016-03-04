@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AdminuserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Adminusers';
+$this->title = '管理用户列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="adminuser-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Adminuser', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('创建管理用户', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,14 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            // 'email:email',
-            // 'status',
+            //'auth_key',
+            //'password_hash',
+            //'password_reset_token',
+            'email',
+			'phone',
             // 'avatar',
-            // 'phone',
-            // 'type',
+            'type',
+			//'status',
+			[
+				'attribute' => 'status',
+				'value' => function ($model) {
+					return $model->status == 1 ? '活动' : '锁定';
+				},
+			],
             // 'created_at',
             // 'updated_at',
 
