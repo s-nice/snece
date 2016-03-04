@@ -36,7 +36,7 @@ class Adminuser extends \yii\db\ActiveRecord
 	public function scenarios() {
 		return [
 			'pw' => ['password_hash', 'newpw', 'repeat', 'avatar'],
-			'default' => ['username', 'auth_key', 'password_hash', 'phone', 'email', 'created_at', 'updated_at'],
+			'default' => ['username', 'realname', 'auth_key', 'password_hash', 'phone', 'email', 'created_at', 'updated_at'],
 		];
 	}
 
@@ -46,9 +46,9 @@ class Adminuser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'type', 'created_at', 'updated_at'], 'required', 'on' => ['default']],
+            [['username', 'realname', 'auth_key', 'password_hash', 'type', 'created_at', 'updated_at'], 'required', 'on' => ['default']],
             [['status', 'type', 'created_at', 'updated_at'], 'integer', 'on' => ['default']],
-            [['username'], 'string', 'max' => 30, 'on' => ['default']],
+            [['username', 'realname'], 'string', 'max' => 30, 'on' => ['default']],
             [['auth_key'], 'string', 'max' => 32, 'on' => ['default']],
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255, 'on' => ['default']],
             [['avatar'], 'string', 'max' => 120, 'on' => ['default']],
@@ -68,6 +68,7 @@ class Adminuser extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'username' => '用户名',
+			'realname' => '真实姓名',
             'auth_key' => 'Auth Key',
             'password_hash' => '密码',
             'password_reset_token' => 'Password Reset Token',
