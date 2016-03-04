@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				'value' => function ($model) {
 					return $model->status == 1 ? '活动' : '锁定';
 				},
+				'filter' => ['1' => '活动', '2' => '锁定'],
 			],
             // 'created_at',
             // 'updated_at',
