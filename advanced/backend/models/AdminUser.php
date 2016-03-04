@@ -46,14 +46,15 @@ class Adminuser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'type', 'created_at', 'updated_at'], 'required'],
-            [['status', 'type', 'created_at', 'updated_at'], 'integer'],
-            [['username'], 'string', 'max' => 30],
-            [['auth_key'], 'string', 'max' => 32],
-            [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
-            [['avatar'], 'string', 'max' => 120],
-            [['phone'], 'string', 'max' => 20],
-			[['password_hash','repeat','newpw'], 'required', 'message' => '旧密码不能为空.', 'on' => ['pw']],
+            [['username', 'auth_key', 'password_hash', 'type', 'created_at', 'updated_at'], 'required', 'on' => ['default']],
+            [['status', 'type', 'created_at', 'updated_at'], 'integer', 'on' => ['default']],
+            [['username'], 'string', 'max' => 30, 'on' => ['default']],
+            [['auth_key'], 'string', 'max' => 32, 'on' => ['default']],
+            [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255, 'on' => ['default']],
+            [['avatar'], 'string', 'max' => 120, 'on' => ['default']],
+            [['phone'], 'string', 'max' => 20, 'on' => ['default']],
+			[['password_hash'], 'required', 'message' => '旧密码不能为空.', 'on' => ['pw']],
+			[['newpw', 'repeat'], 'required', 'on' => ['pw']],
 			['repeat', 'compare', 'compareAttribute' => 'newpw', 'operator' => '===', 'message' => '两次密码不一致.', 'on' => ['pw']],
 			[['avatar'], 'file', 'on' => ['pw']],
         ];
