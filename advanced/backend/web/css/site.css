@@ -124,3 +124,16 @@ input[type="file"] {
 .table-striped > tbody > tr:hover{
 	background: #e0f3ff;
 }
+
+.search .form-group{
+	float:left;
+}
+.pagination{
+	margin:0;
+	float:right;
+}
+.summary{
+	float:right;
+	line-height:34px;
+	margin-left:10px;
+}
