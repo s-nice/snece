@@ -29,7 +29,7 @@ return [
 	],
 	'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'backend\models\AmUser',
             //'enableAutoLogin' => true,
         ],
 		'log' => [
