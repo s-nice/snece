@@ -107,14 +107,8 @@ class AdminuserController extends BackendBase
         $model = $this->findModel($id);
 		$op=$model->password_hash;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $user=Adminuser::find()->where(['username' => $model->username])->one();
-			if($user){
-				$model->addError('username','用户名已存在.');
-				return $this->render('create', [
-					'model' => $model,
-				]);
-			}
+        if ($model->load(Yii::$app->request->post())) {
+            
 			$pwl=strlen($model->password_hash);
 			if($pwl<6){
 				$model->addError('password_hash','密码不能少于6位.');
