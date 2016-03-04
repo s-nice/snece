@@ -18,13 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'avatar')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'type')->textInput() ?>
+	
+	<?= $form->field($model, 'status')->dropDownList(['1'=>'活动','2'=>'锁定'], ['style'=>'width:120px']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '创建' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
