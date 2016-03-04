@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?= Html::a(Yii::t('rbac-admin', 'Create Rule'), ['create'], ['class' => 'btn btn-success']) ?>
 </p>
 
-<div class="role-index content-body">
+<div class="role-index">
 
     <?php
     Pjax::begin([

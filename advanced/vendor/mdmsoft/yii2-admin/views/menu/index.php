@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?= Html::a(Yii::t('rbac-admin', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
 </p>
 
-<div class="menu-index content-body">
+<div class="menu-index">
 
     <?php
     Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);

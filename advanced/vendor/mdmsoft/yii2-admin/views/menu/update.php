@@ -12,6 +12,9 @@ $this->params['breadcrumbs'][] = Yii::t('rbac-admin', 'Update');
 ?>
 
 <h2><?= Html::encode($this->title) ?></h2>
+<p>
+<?= Html::a('菜单列表', ['index'], ['class' => 'btn btn-success']) ?>
+</p>
 
 <div class="menu-update content-body">
 

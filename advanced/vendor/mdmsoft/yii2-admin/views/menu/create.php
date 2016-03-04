@@ -11,6 +11,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <h2><?= Html::encode($this->title) ?></h2>
+<p>
+<?= Html::a('菜单列表', ['index'], ['class' => 'btn btn-success']) ?>
+</p>
 
 <div class="menu-create content-body">
 
