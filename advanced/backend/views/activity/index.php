@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?= Html::a('创建活动', ['create'], ['class' => 'btn btn-success']) ?>
 </p>
 
-<div class="activity-index content-body">
+<div class="activity-index">
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<div class="links-index content-body">
+<div class="links-index">
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 	<?php Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);?>
     <?= GridView::widget([

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AdminuserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '管理用户列表';
+$this->title = '后台用户列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="adminuser-index">
@@ -27,13 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'username',
+			'realname',
             //'auth_key',
             //'password_hash',
             //'password_reset_token',
             'email',
 			'phone',
             // 'avatar',
-            'type',
+            //'type',
 			//'status',
 			[
 				'attribute' => 'status',

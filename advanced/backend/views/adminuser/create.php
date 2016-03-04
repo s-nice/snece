@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Adminuser */
 
-$this->title = '创建管理用户';
+$this->title = '创建后台用户';
 $this->params['breadcrumbs'][] = ['label' => 'Adminusers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

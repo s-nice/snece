@@ -6,9 +6,9 @@ use yii\helpers\Html;
 /* @var $model backend\models\Adminuser */
 
 $this->title = '更新: ' . ' ' . $model->username;
-$this->params['breadcrumbs'][] = ['label' => 'Adminusers', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = ['label' => '后台用户列表', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->username, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = '更新';
 ?>
 
 <div class="page-title">
