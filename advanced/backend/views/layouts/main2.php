@@ -83,13 +83,13 @@ list($dataPath, $dataUrl) = Yii::$app->assetManager->publish('@backend/data');
             </a>
             <ul class="dropdown-menu profile animated fadeIn">
                 <li>
-                    <a href="<?= Url::to('/user/pw') ?>">
+                    <a href="<?= Url::to('/adminuser/pw') ?>">
                         <i class="fa fa-wrench"></i>
                         修改密码
                     </a>
                 </li>
                 <li>
-                    <a href="<?= Url::to('/user/profile') ?>">
+                    <a href="<?= Url::to('/adminuser/profile') ?>">
                         <i class="fa fa-user"></i>
                         个人信息
                     </a>
