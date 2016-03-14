@@ -8,23 +8,12 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ApplySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '报名';
+$this->title = '报名列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="page-title">
-
-	<div class="pull-left">
-		<h1 class="title"><?= Html::encode($this->title) ?></h1>
-	</div>
-
-	<div class="pull-right hidden-xs">
-		<?= Html::a('新增', ['create'], ['class' => 'btn btn-primary pull-right']) ?>
-	</div>
-
-</div>
-
-<div class="apply-index content-body">
+<div class="apply-index">
+	<h2><?= Html::encode($this->title) ?></h2>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 	<?php Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);?>
