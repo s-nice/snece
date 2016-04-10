@@ -8,5 +8,11 @@
 		<div class="fh5co-desc"><?php echo $one->des; ?></div>
 	</div>
 	<?php } ?>
+	<p style="display:none" id="imgid"><?php echo $one->id; ?></p>
 	
+</div>
+
+<p style="display:none" id="pid"><?php echo $pid; ?></p>
+<div id="more" class="col-md-12 text-center">
+	<button class="button post-append" title="点击加载更多">点击加载更多</>
 </div>
