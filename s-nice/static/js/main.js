@@ -112,32 +112,25 @@ function require() {
 		var data=new Array();
 		data[0]=pid;
 		data[1]=imgid;
-		$.ajax({
-			url: '/common/getimg',
-			//dataType: 'json',
-			cache: false,
-			async: false,
-			type: 'POST',
-			data: {data: data},
-			success: function (data) {
-				if (data != 0) {
-					content = eval(data);
-					
-					for (var i = 0; i < content.length; i++) {
-						var item = document.createElement('div');
-
-						salvattore[mode + '_elements'](grid, [item]);
-
-						item.outerHTML = content[i];
-					}
-					
-				} else {
-					$('#more').html('无更多');
-				}
-			},
-		});
-
 		
+		$.post('/common/getimg', {'data': data}, function(data) {
+
+			if (data != 0) {
+				content = eval(data);
+
+				for (var i = 0; i < content.length; i++) {
+					var item = document.createElement('div');
+
+					salvattore[mode + '_elements'](grid, [item]);
+
+					item.outerHTML = content[i];
+				}
+
+			} else {
+				$('#more').html('无更多');
+			}
+
+		});
 	}
 
 	function prepend_post(event) {
