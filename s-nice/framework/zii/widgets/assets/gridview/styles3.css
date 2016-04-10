@@ -1,0 +1,142 @@
+.grid-view-loading
+{
+	background:url(loading.gif) top center no-repeat;
+}
+
+.grid-view
+{
+	padding: 15px 0;
+}
+.grid-view:after{ content:"";clear:both;height:20px;display:block}
+.grid-view table.items
+{
+	background: white;
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px #D0E3EF solid;
+}
+
+.grid-view table.items th, .grid-view table.items td
+{
+	font-size:14px;
+	border: 1px #ddd solid;
+	padding:0.5em;
+	line-height:20px;
+}
+.grid-view table.items thead th{
+	padding:10px 0.5em
+}
+.grid-view table.items th
+{
+	color: white;
+	background:#888;
+	text-align: center;
+}
+
+.grid-view table.items th a
+{
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.grid-view table.items th a:hover
+{
+	color: #ddd;
+}
+
+.grid-view table.items th a.asc
+{
+	background:url(up.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items th a.desc
+{
+	background:url(down.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items tr.even
+{
+	background: #fff;
+}
+
+.grid-view table.items tr.odd
+{
+	background: #f8f8f8;
+}
+
+.grid-view table.items tr.selected
+{
+	background: #e0f3ff;
+}
+
+.grid-view table.items tr:hover.selected
+{
+	background: #cdebff;
+}
+
+.grid-view table.items tbody tr:hover
+{
+	background: #e0f3ff;
+}
+
+.grid-view .link-column img
+{
+	border: 0;
+}
+
+.grid-view .button-column
+{
+	text-align: center;
+	width: 60px;
+}
+.grid-view .button-column a
+{
+	margin:1px;
+	padding:3px 5px;
+	background:#09f;
+	color:#fff;
+	text-decoration:none;
+	display:inline-block;
+	border-radius:3px;
+}
+.grid-view .button-column a:hover{
+	background:#06f
+}
+.grid-view .button-column a.delete{background:#c00}
+.grid-view .button-column a.delete:hover{background:#a00}
+.grid-view .button-column img
+{
+	border: 0;
+}
+
+.grid-view .checkbox-column
+{
+	width: 15px;
+}
+
+.grid-view .summary
+{
+	line-height:32px;
+	float: right;
+	padding-right:30px;
+}
+
+.grid-view .pager
+{
+	float: right;
+}
+
+.grid-view .empty
+{
+	font-style: italic;
+}
+
+.grid-view .filters input,
+.grid-view .filters select
+{
+	width: 100%;
+	border: 1px solid #ccc;
+}
