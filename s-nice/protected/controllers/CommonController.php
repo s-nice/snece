@@ -22,42 +22,38 @@ class CommonController extends FrontBase {
 		
 	}
 	
-	public function actionGetcase(){
+	public function actionGetimg(){
 		
 		if(isset($_POST['data'])){
 			$data=$_POST['data'];
 			
-			$model = new Cases();
+			$model = new Image();
 			$criteria = new CDbCriteria();
-			$criteria->addCondition("is_show=1 and orderid>$data");
+			if($data[0]){
+				$criteria->addCondition("is_show=1 and pid=$data[0] and id>$data[1]");
+			}else{
+				$criteria->addCondition("is_show=1 and id>$data[1]");
+			}
 			$criteria->order = 'orderid ASC';
 			$criteria->limit=6;
-			$cases = $model->findAll($criteria);
-			$html='';
-			if($cases){
-				foreach($cases as $one){
-					$imgs=Caseimg::getImgs($one->id);
-					$i=0;
-					$imglist='';
-					foreach($imgs as $img){
-						if($i==0){
-							$imglist=$img;
-						}else{
-							$imglist = $imgs.','.$img;
-						};
-						$i++;
-					}
-
-					$html=$html."<div class='item'>
-						<a href='javascript:;' class='caseview external' data-img='$imglist' data-txt='$one->eint<br>$one->cint'>
-							<img src='$one->img'>
-							<div class='text'><span>$one->name</span></div>
-						</a>
-
-					</div>";
-				}
-				$html=$html."<p style='display:none' class='order'>$one->orderid</p>";
+			$imgs = $model->findAll($criteria);
+			
+			if(!$imgs){
+				echo 0;exit();
 			}
+			
+			$html=array();
+			if($imgs){
+				foreach($imgs as $one){
+					
+					$html[]="<div class='item'><div class='animate-box bounceIn animated'>
+					<a href='javascript:;' class='image-popup fh5co-board-img' title='$one->title'><img src='http://7xssk6.com2.z0.glb.clouddn.com/$one->img' alt='s-nice'></a>						
+					</div>
+					<div class='fh5co-desc'>$one->des</div></div>";
+				}
+				$html[]="<p style='display:none' id='imgid'>$one->id</p>";
+			}
+			$html = json_encode($html);
 			if($html){
 				echo $html;exit();
 			}else{

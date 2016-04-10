@@ -22,7 +22,7 @@ class SiteController extends FrontBase
 		
 		$this->render('index',array(
 			'imgs'=>$imgs,
-			
+			'pid'=>$pid,
 		));
 	}
 
