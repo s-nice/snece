@@ -16,8 +16,8 @@ class SiteController extends FrontBase
 		}else{
 			$criteria->addCondition("is_show=1");
 		}
-		
-		$criteria->order = 'id desc';
+		$criteria->limit=9;
+		$criteria->order = 'id ASC';
 		$imgs = $model->findAll($criteria);
 		
 		$this->render('index',array(

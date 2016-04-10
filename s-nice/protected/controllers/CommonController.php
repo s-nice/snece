@@ -34,7 +34,7 @@ class CommonController extends FrontBase {
 			}else{
 				$criteria->addCondition("is_show=1 and id>$data[1]");
 			}
-			$criteria->order = 'orderid ASC';
+			$criteria->order = 'id ASC';
 			$criteria->limit=6;
 			$imgs = $model->findAll($criteria);
 			
