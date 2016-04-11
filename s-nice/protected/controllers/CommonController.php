@@ -30,11 +30,11 @@ class CommonController extends FrontBase {
 			$model = new Image();
 			$criteria = new CDbCriteria();
 			if($data[0]){
-				$criteria->addCondition("is_show=1 and pid=$data[0] and id>$data[1]");
+				$criteria->addCondition("is_show=1 and pid=$data[0] and id<$data[1]");
 			}else{
-				$criteria->addCondition("is_show=1 and id>$data[1]");
+				$criteria->addCondition("is_show=1 and id<$data[1]");
 			}
-			$criteria->order = 'id ASC';
+			$criteria->order = 'id desc';
 			$criteria->limit=6;
 			$imgs = $model->findAll($criteria);
 			
