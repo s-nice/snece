@@ -35,7 +35,7 @@ class Image extends CActiveRecord
 			array('title', 'safe'),
 			array('pid, is_show', 'numerical', 'integerOnly'=>true),
 			array('img', 'length', 'max'=>90),
-			array('des', 'length', 'max'=>150),
+			array('des', 'length', 'max'=>300),
 			array('orderid, create_at', 'length', 'max'=>10),
 			array('create_uid', 'length', 'max'=>6),
 			// The following rule is used by search().
