@@ -26,6 +26,10 @@
 
 </div>
 
+<div style='display:none;' id="more" class="col-md-12 text-center">
+	<button class="button post-append" title="点击加载更多">点击加载更多</>
+</div>
+
 <script>
 function contact(){
 	var name=$("input[name='name']").val();
