@@ -35,7 +35,7 @@
 
 		<div id="fh5co-offcanvass">
 			<a href="javascript:;" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">菜单<i class="icon-cross"></i> </a>
-			<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">s-nice</a></h1>
+			<!--<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">s-nice</a></h1>-->
 			<ul>
 				<li class="<?php if(!isset($_GET['pid']) && Yii::app()->getController()->getAction()->id=='index' ){ echo 'active'; } ?>"><a href="/">全部</a></li>
 				<?php $cat = Common::getcat(1); foreach ($cat as $one) { ?>
