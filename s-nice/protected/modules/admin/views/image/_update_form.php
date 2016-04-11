@@ -54,7 +54,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'des'); ?>
-		<?php echo $form->textField($model,'des',array('size'=>60,'maxlength'=>150)); ?>
+		<?php echo $form->textField($model,'des',array('size'=>60,'maxlength'=>300)); ?>
 		<?php echo $form->error($model,'des'); ?>
 	</div>
 <!--
