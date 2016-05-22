@@ -44,7 +44,7 @@ class ImageController extends AdminBase {
 			$img = CUploadedFile::getInstance($model, 'img');
 			
 			if ($img) {
-				$savename = time() . mt_rand(00001, 99999) . '.' . $img->extensionName;
+				$savename = time() . mt_rand(1, 99999) . '.' . $img->extensionName;
 				$model->img = $savename;
 				if ($model->validate()) {
 					$img->saveAs(Yii::app()->params['uploadPath'] . $savename);
